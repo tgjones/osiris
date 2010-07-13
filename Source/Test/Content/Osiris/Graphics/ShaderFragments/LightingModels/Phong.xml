@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<XnaContent>
+	<Asset Type="Osiris.Content.Pipeline.Graphics.Shaders.ShaderFragmentContent">
+		<Name>Osiris.LightingModels.Phong</Name>
+
+		<Class>LightingModel</Class>
+
+		<!-- Lists any constant registers used by the fragment -->
+		<Parameters>
+			<Item>
+				<DataType>matrix</DataType>
+				<Name>World</Name>
+				<Semantic>WORLD</Semantic>
+			</Item>
+			<Item>
+				<DataType>float3</DataType>
+				<Name>CameraPosition</Name>
+				<Semantic>CAMERAPOSITION</Semantic>
+			</Item>
+			<Item>
+				<DataType>float4</DataType>
+				<Name>AmbientLightDiffuseColour</Name>
+			</Item>
+		</Parameters>
+
+		<!-- Declares what data needs to be output from the vertex shader and input to the pixel shader -->
+		<Interpolators>
+			<Item>
+				<DataType>float3</DataType>
+				<Name>WorldPosition</Name>
+			</Item>
+		</Interpolators>
+
+		<Functions>
+			<![CDATA[
+float4 ProcessLight(Light light, float3 cameraPosition,
+	float3 worldPosition, float3 worldNormal,
+	float4 materialDiffuseColour, float4 materialSpecularColour,
+	float materialSpecularIntensity, float materialSpecularPower)
+{
+	// Diffuse light is light that hits a surface and gets scattered equally into all directions.
+	// Its intensity depends on the angle at which the light strikes the surface, i.e. the angle
+	// between the light vector and the surface normal. The bigger the angle,
+	// the less bright the surface will appear.
+	float diffuseIntensity = saturate(dot(light.DirectionToLight, worldNormal));
+	float4 diffuse = diffuseIntensity * light.DiffuseColour * materialDiffuseColour;
+
+	// Calculate Phong components per-pixel.
+	float3 reflectionVector = normalize(reflect(-light.DirectionToLight, worldNormal));
+	float3 directionToCamera = normalize(cameraPosition - worldPosition);
+
+	// Calculate specular component.
+	// Specular light is light that gets reflected in a particular direction.
+	// Because of this, specular light is view-dependent -- its intensity depends
+	// on the angle between the light vector and the view vector. Specular lighting
+	// is responsible for creating the highlights that make an object look shiny.
+	float4 specular = saturate(light.DiffuseColour * materialSpecularColour * materialSpecularIntensity *
+														 pow(saturate(dot(reflectionVector, directionToCamera)),
+																 materialSpecularPower));
+	
+	return diffuse + specular;
+}
+]]>
+		</Functions>
+
+		<VertexProgram>
+			<![CDATA[
+VERTEX_OUTPUT main()
+{
+	float3 inputPosition;
+	import(InputPosition, inputPosition = InputPosition);
+	
+	VERTEX_OUTPUT output;
+	output.WorldPosition = mul(float4(inputPosition, 1), World);
+	return output;
+}
+]]>
+		</VertexProgram>
+
+		<PixelProgram>
+<![CDATA[
+void main(PIXEL_INPUT input, inout PixelOutput output)
+{
+	// Import world normal - this will have either been exported by a simple pass-through
+	// fragment which exported the normal coming from the vertex shader, or else it
+	// might be a normal that was retrieved from a terrain normal map.
+	float3 worldNormal;
+	import(WorldNormal, worldNormal = WorldNormal);
+	
+	// Import material properties.
+	float4 materialDiffuseColour, materialSpecularColour;
+	float materialSpecularIntensity, materialSpecularPower;
+	import(MaterialDiffuseColour, materialDiffuseColour = MaterialDiffuseColour);
+	import(MaterialSpecularColour, materialSpecularColour = MaterialSpecularColour);
+	import(MaterialSpecularIntensity, materialSpecularIntensity = MaterialSpecularIntensity);
+	import(MaterialSpecularPower, materialSpecularPower = MaterialSpecularPower);
+	
+	// Calculate ambient colour.
+	// Ambient light is a constant amount of light that gets added to the scene no matter what.
+	// It's goal is to fake the contribution of indirect reflections, which can normally only be
+	// accounted for using global illumination solutions. The ambient term is used simply to
+	// keep shadows from turning pitch black, which would be very unrealistic.
+	float4 ambient = AmbientLightDiffuseColour * materialDiffuseColour;
+	
+	// Now we import whatever lights have been exported by previous light fragments,
+	// and process them one-by-one. Because light is additive, the final intensity of the light
+	// reflected by a given surface is simply the sum of the ambient, diffuse and specular components.
+	float4 finalColour = ambient;
+	import(Light, finalColour += ProcessLight(Light, CameraPosition, input.WorldPosition, worldNormal, materialDiffuseColour, materialSpecularColour, materialSpecularIntensity, materialSpecularPower));
+
+	export(float4, LightColour, finalColour);
+}
+]]>
+		</PixelProgram>
+	</Asset>
+</XnaContent>

@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<XnaContent>
+	<Asset Type="Osiris.Content.Pipeline.Graphics.Shaders.ShaderFragmentContent">
+		<Name>Osiris.BasicMaterial</Name>
+
+		<Class>Material</Class>
+
+		<!-- Lists any constant registers used by the fragment -->
+		<Parameters>
+			<Item>
+				<DataType>float</DataType>
+				<Name>Alpha</Name>
+			</Item>
+			<Item>
+				<DataType>float3</DataType>
+				<Name>DiffuseColour</Name>
+			</Item>
+			<Item>
+				<DataType>float3</DataType>
+				<Name>SpecularColour</Name>
+			</Item>
+			<Item>
+				<DataType>float</DataType>
+				<Name>SpecularPower</Name>
+			</Item>
+			<Item>
+				<DataType>float</DataType>
+				<Name>SpecularIntensity</Name>
+			</Item>
+			<Item>
+				<DataType>float</DataType>
+				<Name>Roughness</Name>
+			</Item>
+			<Item>
+				<DataType>bool</DataType>
+				<Name>TextureEnabled</Name>
+			</Item>
+		</Parameters>
+
+		<Textures>
+			<Item>
+				<Name>DiffuseTexture</Name>
+				<SamplerName>DiffuseSampler</SamplerName>
+				<SamplerDataType>sampler2D</SamplerDataType>
+				<MipFilter>Linear</MipFilter>
+				<MinFilter>Linear</MinFilter>
+				<MagFilter>Linear</MagFilter>
+				<AddressU>Clamp</AddressU>
+				<AddressV>Clamp</AddressV>
+			</Item>
+		</Textures>
+
+		<VertexInputs>
+			<Item>
+				<DataType>float2</DataType>
+				<Name>TextureCoordinate</Name>
+				<Semantic>TEXCOORD0</Semantic>
+			</Item>
+		</VertexInputs>
+
+		<Interpolators>
+			<Item>
+				<DataType>float2</DataType>
+				<Name>TexCoords</Name>
+			</Item>
+		</Interpolators>
+
+		<VertexProgram>
+			<![CDATA[
+VERTEX_OUTPUT main()
+{
+	VERTEX_OUTPUT output;
+	output.TexCoords = gVertexInput.TextureCoordinate;
+	return output;
+}
+]]>
+		</VertexProgram>
+
+		<PixelProgram>
+<![CDATA[
+void main(PIXEL_INPUT input, inout PixelOutput output)
+{
+	if (TextureEnabled)
+	{
+		float4 textureColour = tex2D(DiffuseSampler, input.TexCoords);
+		export(float4, MaterialDiffuseColour, textureColour);
+	}
+	else
+	{
+		export(float4, MaterialDiffuseColour, float4(DiffuseColour, Alpha));
+	}
+	
+	export(float4, MaterialSpecularColour, float4(SpecularColour, Alpha));
+	export(float, MaterialSpecularPower, SpecularPower);
+	export(float, MaterialSpecularIntensity, SpecularIntensity);
+	export(float, MaterialRoughness, Roughness);
+}
+]]>
+		</PixelProgram>
+	</Asset>
+</XnaContent>

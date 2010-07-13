@@ -1,0 +1,430 @@
+//**************************************************************
+// Begin Parameters
+//**************************************************************
+
+// OsirisVertexTypesVertexPassThru1 parameters
+const matrix OsirisVertexTypesVertexPassThru1WorldViewProjection : WORLDVIEWPROJECTION;
+
+// OsirisBasicMaterial2 parameters
+const float OsirisBasicMaterial2Alpha;
+const float3 OsirisBasicMaterial2DiffuseColour;
+const float3 OsirisBasicMaterial2SpecularColour;
+const float OsirisBasicMaterial2SpecularPower;
+const float OsirisBasicMaterial2SpecularIntensity;
+const bool OsirisBasicMaterial2TextureEnabled;
+
+// OsirisLightsDirectionalLight3 parameters
+const matrix OsirisLightsDirectionalLight3World : WORLD;
+const float3 OsirisLightsDirectionalLight3CameraPosition : CAMERAPOSITION;
+const float4 OsirisLightsDirectionalLight3AmbientLightDiffuseColour;
+const float3 OsirisLightsDirectionalLight3LightDirection;
+const float4 OsirisLightsDirectionalLight3LightDiffuseColour;
+
+
+
+//**************************************************************
+// End Parameters
+//**************************************************************
+
+
+//**************************************************************
+// Begin Textures
+//**************************************************************
+
+// OsirisBasicMaterial2 textures
+texture OsirisBasicMaterial2Texture;
+sampler2D OsirisBasicMaterial2TextureSampler =
+sampler_state
+{
+	Texture = <OsirisBasicMaterial2Texture>;
+	MipFilter = Linear;
+	MinFilter = Linear;
+	MagFilter = Linear;
+	AddressU = Clamp;
+	AddressV = Clamp;
+};
+
+
+
+
+//**************************************************************
+// End Textures
+//**************************************************************
+
+
+//**************************************************************
+// Begin Vertex Input Structure
+//**************************************************************
+
+struct VertexInput
+{
+	float3 Position : POSITION0;
+	float3 Normal : NORMAL0;
+	float2 TextureCoordinate : TEXCOORD0;
+
+};
+
+VertexInput gVertexInput;
+
+//**************************************************************
+// End Vertex Input Structure
+//**************************************************************
+
+
+//**************************************************************
+// Begin Vertex Output Structure
+//**************************************************************
+
+struct OsirisVertexTypesPositionNormalTexture0VertexOutput
+{
+	float3 Normal : TEXCOORD0;
+};
+
+struct OsirisVertexTypesVertexPassThru1VertexOutput
+{
+	float4 Position : POSITION;
+};
+
+struct OsirisBasicMaterial2VertexOutput
+{
+	float2 TexCoords : TEXCOORD1;
+};
+
+struct OsirisLightsDirectionalLight3VertexOutput
+{
+	float3 WorldPosition : TEXCOORD2;
+};
+
+struct OsirisPixelColourOutput4VertexOutput
+{
+};
+
+struct VertexOutput
+{
+	OsirisVertexTypesPositionNormalTexture0VertexOutput OsirisVertexTypesPositionNormalTexture0;
+	OsirisVertexTypesVertexPassThru1VertexOutput OsirisVertexTypesVertexPassThru1;
+	OsirisBasicMaterial2VertexOutput OsirisBasicMaterial2;
+	OsirisLightsDirectionalLight3VertexOutput OsirisLightsDirectionalLight3;
+	OsirisPixelColourOutput4VertexOutput OsirisPixelColourOutput4;
+};
+
+
+
+//**************************************************************
+// End Vertex Output Structure
+//**************************************************************
+
+
+//**************************************************************
+// Begin Pixel Input Structure
+//**************************************************************
+
+struct OsirisVertexTypesPositionNormalTexture0PixelInput
+{
+	float3 Normal : TEXCOORD0;
+};
+
+struct OsirisBasicMaterial2PixelInput
+{
+	float2 TexCoords : TEXCOORD1;
+};
+
+struct OsirisLightsDirectionalLight3PixelInput
+{
+	float3 WorldPosition : TEXCOORD2;
+};
+
+struct PixelInput
+{
+	OsirisVertexTypesPositionNormalTexture0PixelInput OsirisVertexTypesPositionNormalTexture0;
+	OsirisBasicMaterial2PixelInput OsirisBasicMaterial2;
+	OsirisLightsDirectionalLight3PixelInput OsirisLightsDirectionalLight3;
+};
+
+PixelInput gPixelInput;
+
+
+
+//**************************************************************
+// End Pixel Input Structure
+//**************************************************************
+
+
+//**************************************************************
+// Begin Pixel Output Structure
+//**************************************************************
+
+struct PixelOutput
+{
+	float4 Colour : COLOR0;
+};
+
+//**************************************************************
+// End Pixel Output Structure
+//**************************************************************
+
+
+//**************************************************************
+// Begin Vertex Shader Functions
+//**************************************************************
+
+// vertex shader OsirisVertexTypesPositionNormalTexture0
+float3 OsirisVertexTypesPositionNormalTexture0_Export_InputPosition; // exported value
+
+
+OsirisVertexTypesPositionNormalTexture0VertexOutput OsirisVertexTypesPositionNormalTexture0_VertexShaderFragment()
+{
+	// metafunction: export(float3, InputPosition, gVertexInput.Position);
+	OsirisVertexTypesPositionNormalTexture0_Export_InputPosition = gVertexInput.Position;
+	
+	OsirisVertexTypesPositionNormalTexture0VertexOutput output;
+	output.Normal = gVertexInput.Normal;
+	return output;
+}
+
+		
+
+// vertex shader OsirisVertexTypesVertexPassThru1
+
+
+OsirisVertexTypesVertexPassThru1VertexOutput OsirisVertexTypesVertexPassThru1_VertexShaderFragment()
+{
+	float3 inputPosition;
+	// metafunction: import(InputPosition, inputPosition = InputPosition);
+	inputPosition = OsirisVertexTypesPositionNormalTexture0_Export_InputPosition;
+	
+	OsirisVertexTypesVertexPassThru1VertexOutput output;
+	output.Position = mul(float4(inputPosition, 1), OsirisVertexTypesVertexPassThru1WorldViewProjection);
+	return output;
+}
+
+		
+
+// vertex shader OsirisBasicMaterial2
+
+			
+OsirisBasicMaterial2VertexOutput OsirisBasicMaterial2_VertexShaderFragment()
+{
+	OsirisBasicMaterial2VertexOutput output;
+	output.TexCoords = gVertexInput.TexCoords;
+	return output;
+}
+
+		
+
+// vertex shader OsirisLightsDirectionalLight3
+
+
+OsirisLightsDirectionalLight3VertexOutput OsirisLightsDirectionalLight3_VertexShaderFragment()
+{
+	float3 inputPosition;
+	// metafunction: import(InputPosition, inputPosition = InputPosition);
+	inputPosition = OsirisVertexTypesPositionNormalTexture0_Export_InputPosition;
+	
+	OsirisLightsDirectionalLight3VertexOutput output;
+	output.WorldPosition = mul(float4(inputPosition, 1), OsirisLightsDirectionalLight3World);
+	return output;
+}
+
+		
+
+
+
+//**************************************************************
+// End Vertex Shader Functions
+//**************************************************************
+
+
+//**************************************************************
+// Begin Pixel Shader Functions
+//**************************************************************
+
+// pixel shader OsirisVertexTypesPositionNormalTexture0
+float3 OsirisVertexTypesPositionNormalTexture0_Export_WorldNormal; // exported value
+
+
+void OsirisVertexTypesPositionNormalTexture0_PixelShaderFragment(OsirisVertexTypesPositionNormalTexture0PixelInput input, inout PixelOutput output)
+{
+	// metafunction: export(float3, WorldNormal, input.Normal);
+	OsirisVertexTypesPositionNormalTexture0_Export_WorldNormal = input.Normal;
+}
+
+		
+
+// pixel shader OsirisBasicMaterial2
+float4 OsirisBasicMaterial2_Export_MaterialDiffuseColour; // exported value
+float4 OsirisBasicMaterial2_Export_MaterialDiffuseColour; // exported value
+float4 OsirisBasicMaterial2_Export_MaterialSpecularColour; // exported value
+float OsirisBasicMaterial2_Export_MaterialSpecularPower; // exported value
+float OsirisBasicMaterial2_Export_MaterialSpecularIntensity; // exported value
+
+
+void OsirisBasicMaterial2_PixelShaderFragment(OsirisBasicMaterial2PixelInput input, inout PixelOutput output)
+{
+	if (OsirisBasicMaterial2TextureEnabled)
+	{
+		float4 textureColour = tex2D(Texture, input.TexCoords);
+		// metafunction: export(float4, MaterialDiffuseColour, textureColour);
+	OsirisBasicMaterial2_Export_MaterialDiffuseColour = textureColour;
+	}
+	else
+	{
+		// metafunction: export(float4, MaterialDiffuseColour, float4(OsirisBasicMaterial2DiffuseColour, OsirisBasicMaterial2Alpha));
+	OsirisBasicMaterial2_Export_MaterialDiffuseColour = float4(OsirisBasicMaterial2DiffuseColour, OsirisBasicMaterial2Alpha);
+	}
+	
+	// metafunction: export(float4, MaterialSpecularColour, float4(OsirisBasicMaterial2SpecularColour, OsirisBasicMaterial2Alpha));
+	OsirisBasicMaterial2_Export_MaterialSpecularColour = float4(OsirisBasicMaterial2SpecularColour, OsirisBasicMaterial2Alpha);
+	// metafunction: export(float, MaterialSpecularPower, OsirisBasicMaterial2SpecularPower);
+	OsirisBasicMaterial2_Export_MaterialSpecularPower = OsirisBasicMaterial2SpecularPower;
+	// metafunction: export(float, MaterialSpecularIntensity, OsirisBasicMaterial2SpecularIntensity);
+	OsirisBasicMaterial2_Export_MaterialSpecularIntensity = OsirisBasicMaterial2SpecularIntensity;
+}
+
+		
+
+// pixel shader OsirisLightsDirectionalLight3
+float4 OsirisLightsDirectionalLight3_Export_LightColour; // exported value
+
+
+void OsirisLightsDirectionalLight3_PixelShaderFragment(OsirisLightsDirectionalLight3PixelInput input, inout PixelOutput output)
+{
+	// Import world normal - this will have either been exported by a simple pass-through
+	// fragment which exported the normal coming from the vertex shader, or else it
+	// might be a normal that was retrieved from a terrain normal map.
+	float3 worldNormal;
+	// metafunction: import(WorldNormal, worldNormal = WorldNormal);
+	worldNormal = OsirisVertexTypesPositionNormalTexture0_Export_WorldNormal;
+
+	// Import material properties.
+	float4 materialDiffuseColour, materialSpecularColour;
+	float materialSpecularIntensity, materialSpecularPower;
+	// metafunction: import(MaterialDiffuseColour, materialDiffuseColour = MaterialDiffuseColour);
+	materialDiffuseColour = OsirisBasicMaterial2_Export_MaterialDiffuseColour;
+	// metafunction: import(MaterialSpecularColour, materialSpecularColour = MaterialSpecularColour);
+	materialSpecularColour = OsirisBasicMaterial2_Export_MaterialSpecularColour;
+	// metafunction: import(MaterialSpecularIntensity, materialSpecularIntensity = MaterialSpecularIntensity);
+	materialSpecularIntensity = OsirisBasicMaterial2_Export_MaterialSpecularIntensity;
+	// metafunction: import(MaterialSpecularPower, materialSpecularPower = MaterialSpecularPower);
+	materialSpecularPower = OsirisBasicMaterial2_Export_MaterialSpecularPower;
+	
+	// Calculate ambient colour.
+	// Ambient light is a constant amount of light that gets added to the scene no matter what.
+	// It's goal is to fake the contribution of indirect reflections, which can normally only be
+	// accounted for using global illumination solutions. The ambient term is used simply to
+	// keep shadows from turning pitch black, which would be very unrealistic.
+	float4 ambient = OsirisLightsDirectionalLight3AmbientLightDiffuseColour * materialDiffuseColour;
+	
+	// Diffuse light is light that hits a surface and gets scattered equally into all directions.
+	// Its intensity depends on the angle at which the light strikes the surface, i.e. the angle
+	// between the light vector and the surface normal. The bigger the angle,
+	// the less bright the surface will appear.
+	float3 directionToLight = -OsirisLightsDirectionalLight3LightDirection; // for directional light
+	float diffuseIntensity = saturate(dot(directionToLight, worldNormal));
+	float4 diffuse = diffuseIntensity * OsirisLightsDirectionalLight3LightDiffuseColour * materialDiffuseColour;
+
+	// Calculate Phong components per-pixel.
+	float3 reflectionVector = normalize(reflect(-directionToLight, worldNormal));
+	float3 directionToCamera = normalize(OsirisLightsDirectionalLight3CameraPosition - input.WorldPosition);
+
+	// Calculate specular component.
+	// Specular light is light that gets reflected in a particular direction.
+	// Because of this, specular light is view-dependent -- its intensity depends
+	// on the angle between the light vector and the view vector. Specular lighting
+	// is responsible for creating the highlights that make an object look shiny.
+	float4 specular = saturate(OsirisLightsDirectionalLight3LightDiffuseColour * materialSpecularColour * materialSpecularIntensity * 
+														 pow(saturate(dot(reflectionVector, directionToCamera)),
+																 materialSpecularPower));
+
+	// Because light is additive, the final intensity of the light reflected by a given surface is simply the sum of the ambient, diffuse and specular components:
+	// metafunction: export(float4, LightColour,  ambient + diffuse + specular);
+	OsirisLightsDirectionalLight3_Export_LightColour =  ambient + diffuse + specular;
+}
+
+		
+
+// pixel shader OsirisPixelColourOutput4
+
+			
+void OsirisPixelColourOutput4_PixelShaderFragment(inout PixelOutput output)
+{
+	// Add light colours together.
+	float4 totalLightColour = float4(0, 0, 0, 0);
+	// metafunction: import(LightColour, totalLightColour += LightColour);
+	totalLightColour += OsirisLightsDirectionalLight3_Export_LightColour;
+	output.Colour = totalLightColour;
+}
+
+		
+
+
+
+//**************************************************************
+// End Pixel Shader Functions
+//**************************************************************
+
+
+//**************************************************************
+// Begin Vertex Shader Entry Point
+//**************************************************************
+
+VertexOutput VertexShader(const VertexInput input)
+{
+	gVertexInput = input;
+	
+	VertexOutput output = (VertexOutput) 0;
+	
+	output.OsirisVertexTypesPositionNormalTexture0 = OsirisVertexTypesPositionNormalTexture0_VertexShaderFragment();
+	output.OsirisVertexTypesVertexPassThru1 = OsirisVertexTypesVertexPassThru1_VertexShaderFragment();
+	output.OsirisBasicMaterial2 = OsirisBasicMaterial2_VertexShaderFragment();
+	output.OsirisLightsDirectionalLight3 = OsirisLightsDirectionalLight3_VertexShaderFragment();
+
+	
+	return output;
+}
+
+//**************************************************************
+// End Vertex Shader Entry Point
+//**************************************************************
+
+
+//**************************************************************
+// Begin Pixel Shader Entry Point
+//**************************************************************
+
+PixelOutput PixelShader(const PixelInput input)
+{
+	gPixelInput = input;
+	
+	PixelOutput output = (PixelOutput) 0;
+	
+	OsirisVertexTypesPositionNormalTexture0_PixelShaderFragment(gPixelInput.OsirisVertexTypesPositionNormalTexture0, output);
+	OsirisBasicMaterial2_PixelShaderFragment(gPixelInput.OsirisBasicMaterial2, output);
+	OsirisLightsDirectionalLight3_PixelShaderFragment(gPixelInput.OsirisLightsDirectionalLight3, output);
+	OsirisPixelColourOutput4_PixelShaderFragment(output);
+
+	
+	return output;
+}
+
+//**************************************************************
+// End Pixel Shader Entry Point
+//**************************************************************
+
+
+//**************************************************************
+// Begin Technique
+//**************************************************************
+
+technique
+{
+	pass
+	{
+		VertexShader = compile vs_3_0 VertexShader();
+		PixelShader = compile ps_3_0 PixelShader();
+	}
+}
+
+//**************************************************************
+// End Technique
+//**************************************************************

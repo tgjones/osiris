@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<XnaContent>
+	<Asset Type="Osiris.Content.Pipeline.Graphics.ShaderFragmentContent">
+		<Name>PixelColourOutput</Name>
+
+		<Class>PixelFinal</Class>
+
+		<PixelProgram>
+			<![CDATA[
+void main(inout PixelOutput output)
+{
+	// Add light colours together.
+	float4 totalLightColour = float4(0, 0, 0, 0);
+	import(LightColour, totalLightColour += LightColour);
+	output.Colour = totalLightColour;
+}
+]]>
+		</PixelProgram>
+	</Asset>
+</XnaContent>

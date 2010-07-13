@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<XnaContent>
+  <Asset Type="Osiris.Content.Pipeline.Graphics.Shaders.ShaderCatalogContent">
+		<Item>
+			<VertexElements>
+				<Item>
+					<VertexElementFormat>Vector3</VertexElementFormat>
+					<VertexElementUsage>Position</VertexElementUsage>
+					<UsageIndex>0</UsageIndex>
+				</Item>
+				<Item>
+					<VertexElementFormat>Vector3</VertexElementFormat>
+					<VertexElementUsage>Normal</VertexElementUsage>
+					<UsageIndex>0</UsageIndex>
+				</Item>
+				<Item>
+					<VertexElementFormat>Vector2</VertexElementFormat>
+					<VertexElementUsage>TextureCoordinate</VertexElementUsage>
+					<UsageIndex>0</UsageIndex>
+				</Item>
+			</VertexElements>
+			<ShaderFragments>
+				<Item>Osiris\Graphics\ShaderFragments\Lights\DirectionalLight.xml</Item>
+				<Item>Osiris\Graphics\ShaderFragments\Lights\DirectionalLight.xml</Item>
+				<Item>Osiris\Graphics\ShaderFragments\LightingModels\OrenNayar.xml</Item>
+				<Item>Osiris\Graphics\ShaderFragments\VertexTypes\PositionNormalTexture.xml</Item>
+				<Item>Osiris\Graphics\ShaderFragments\VertexTypes\VertexPassThru.xml</Item>
+				<Item>Osiris\Graphics\ShaderFragments\PixelColourOutput.xml</Item>
+				<Item>Osiris\Graphics\ShaderFragments\BasicMaterial.xml</Item>
+			</ShaderFragments>
+		</Item>
+	</Asset>
+</XnaContent>
