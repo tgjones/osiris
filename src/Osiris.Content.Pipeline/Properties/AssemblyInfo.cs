@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Osiris.Content.Pipeline")]
+[assembly: AssemblyTitle("RoastedAmoeba.Xna.Content.Pipeline")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Osiris.Content.Pipeline")]
-[assembly: AssemblyCopyright("Copyright ©  2008")]
+[assembly: AssemblyProduct("RoastedAmoeba.Xna.Content.Pipeline")]
+[assembly: AssemblyCopyright("Copyright ©  2010")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("b8ed1355-4c61-4428-badf-daf5ce593eb9")]
+[assembly: Guid("b260fcb5-f79f-4d09-b5fd-f21f4fb8618e")]
 
 // Version information for an assembly consists of the following four values:
 //

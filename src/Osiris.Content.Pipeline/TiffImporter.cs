@@ -1,24 +1,12 @@
 using System;
-using System.Collections.Generic;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Content.Pipeline;
 using Microsoft.Xna.Framework.Content.Pipeline.Graphics;
-
-using TImport = Microsoft.Xna.Framework.Content.Pipeline.Graphics.TextureContent;
 using System.IO;
 
 namespace Osiris.Content.Pipeline
 {
-	/// <summary>
-	/// This class will be instantiated by the XNA Framework Content Pipeline
-	/// to import a file from disk into the specified type, TImport.
-	/// 
-	/// This should be part of a Content Pipeline Extension Library project.
-	/// </summary>
-
-	[ContentImporter(".tif", ".tiff", DisplayName = "TiffImporter - Osiris Framework", DefaultProcessor = "FloatingPointTextureProcessor")]
-	public class TiffImporter : ContentImporter<TImport>
+	[ContentImporter(".tif", ".tiff", DisplayName = "TIFF Texture - Osiris Framework", DefaultProcessor = "FloatingPointTextureProcessor")]
+	public class TiffImporter : ContentImporter<TextureContent>
 	{
 		#region Fields
 

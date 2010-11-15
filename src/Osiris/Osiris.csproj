@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <ProjectGuid>{FAAB5026-33A2-47A1-962A-AFE76F20BDC3}</ProjectGuid>
+    <ProjectGuid>{08BAF095-34F7-49E6-849E-7C457DFCE7F4}</ProjectGuid>
     <ProjectTypeGuids>{6D335F3A-9D43-41b4-9D22-F6F17C4BE596};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
@@ -9,94 +9,65 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Osiris</RootNamespace>
     <AssemblyName>Osiris</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
     <XnaFrameworkVersion>v4.0</XnaFrameworkVersion>
     <XnaPlatform>Windows</XnaPlatform>
-    <Thumbnail>
-    </Thumbnail>
-    <XnaCrossPlatformGroupID>{836510bf-2f47-4a50-8a53-c41f0e8520b9}</XnaCrossPlatformGroupID>
-    <XnaUpgrade>
-    </XnaUpgrade>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <FileUpgradeFlags>
-    </FileUpgradeFlags>
-    <OldToolsVersion>3.5</OldToolsVersion>
-    <UpgradeBackupLocation>
-    </UpgradeBackupLocation>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
-    <XnaOutputType>Library</XnaOutputType>
     <XnaProfile>HiDef</XnaProfile>
-    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
-    <PublishUrl>publish\</PublishUrl>
-    <Install>true</Install>
-    <InstallFrom>Disk</InstallFrom>
-    <UpdateEnabled>false</UpdateEnabled>
-    <UpdateMode>Foreground</UpdateMode>
-    <UpdateInterval>7</UpdateInterval>
-    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
-    <UpdatePeriodically>false</UpdatePeriodically>
-    <UpdateRequired>false</UpdateRequired>
-    <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <UseApplicationTrust>false</UseApplicationTrust>
-    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <XnaCrossPlatformGroupID>3ce4aa78-4012-48de-86af-c4fd1b2a851f</XnaCrossPlatformGroupID>
+    <XnaOutputType>Library</XnaOutputType>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\x86\Debug</OutputPath>
-    <DefineConstants>TRACE;DEBUG;TARGET_WINDOWS</DefineConstants>
+    <DefineConstants>DEBUG;TRACE;WINDOWS</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoStdLib>true</NoStdLib>
     <UseVSHostingProcess>false</UseVSHostingProcess>
     <PlatformTarget>x86</PlatformTarget>
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <XnaCompressContent>false</XnaCompressContent>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\x86\Release</OutputPath>
-    <DefineConstants>TRACE%3bWINDOWS</DefineConstants>
+    <DefineConstants>TRACE;WINDOWS</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoStdLib>true</NoStdLib>
     <UseVSHostingProcess>false</UseVSHostingProcess>
     <PlatformTarget>x86</PlatformTarget>
-    <XnaCompressContent>True</XnaCompressContent>
-    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <XnaCompressContent>true</XnaCompressContent>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.Xna.Framework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553">
+    <Reference Include="Microsoft.Xna.Framework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86">
       <Private>False</Private>
     </Reference>
-    <Reference Include="Microsoft.Xna.Framework.Avatar, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=MSIL">
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Microsoft.Xna.Framework.Game, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553">
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Microsoft.Xna.Framework.GamerServices, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=MSIL">
+    <Reference Include="Microsoft.Xna.Framework.Game, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86">
       <Private>False</Private>
     </Reference>
     <Reference Include="Microsoft.Xna.Framework.Graphics, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86">
       <Private>False</Private>
     </Reference>
-    <Reference Include="Microsoft.Xna.Framework.Input.Touch, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=MSIL">
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Microsoft.Xna.Framework.Net, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=MSIL">
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Microsoft.Xna.Framework.Storage, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=MSIL">
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Microsoft.Xna.Framework.Video, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=MSIL">
+    <Reference Include="Microsoft.Xna.Framework.GamerServices, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86">
       <Private>False</Private>
     </Reference>
     <Reference Include="Microsoft.Xna.Framework.Xact, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework.Video, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework.Avatar, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework.Net, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework.Storage, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86">
       <Private>False</Private>
     </Reference>
     <Reference Include="mscorlib">
@@ -105,239 +76,45 @@
     <Reference Include="System">
       <Private>False</Private>
     </Reference>
+    <Reference Include="System.Xml">
+      <Private>False</Private>
+    </Reference>
     <Reference Include="System.Core">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
       <Private>False</Private>
     </Reference>
-    <Reference Include="System.Data" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Windows.Forms" />
-    <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Net">
       <Private>False</Private>
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Audio\AudioManager.cs" />
-    <Compile Include="Audio\IAudioService.cs" />
-    <Compile Include="Builder\OsirisBuilderForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Builder\OsirisBuilderForm.Designer.cs">
-      <DependentUpon>OsirisBuilderForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Graphics\Cameras\TrackerCamera.cs" />
-    <Compile Include="ILoggerService.cs" />
-    <Compile Include="IMessageDisplay.cs" />
-    <Compile Include="IViewer.cs" />
-    <Compile Include="Logger.cs" />
-    <Compile Include="Input\IInputService.cs" />
-    <Compile Include="Input\InputManager.cs" />
-    <Compile Include="Input\MouseStyle.cs" />
-    <Compile Include="Maths\INoiseService.cs" />
-    <Compile Include="Maths\Noise.cs" />
-    <Compile Include="MessageDisplayComponent.cs" />
-    <Compile Include="NestedDrawableGameComponent.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="OsirisGame.cs" />
-    <Compile Include="ScreenManager\GameScreen.cs" />
-    <Compile Include="ScreenManager\InputState.cs" />
-    <Compile Include="ScreenManager\ScreenManager.cs" />
-    <Compile Include="ScreenManager\Screens\MenuEntry.cs" />
-    <Compile Include="ScreenManager\Screens\MenuScreen.cs" />
-    <Compile Include="ScreenManager\Screens\MessageBoxScreen.cs" />
-    <Compile Include="ShortVector2.cs" />
-    <Compile Include="Sky\Atmosphere.cs" />
-    <Compile Include="Sky\IAtmosphereService.cs" />
-    <Compile Include="Sky\SkyDome.cs" />
-    <Compile Include="Sky\SkyDomeVertex.cs" />
-    <Compile Include="BoundingSquare.cs">
-      <Name>BoundingSquare</Name>
-    </Compile>
-    <Compile Include="Content\AssetLoader.cs">
-      <Name>AssetLoader</Name>
-    </Compile>
-    <Compile Include="DrawableGameComponent.cs">
-      <Name>DrawableGameComponent</Name>
-    </Compile>
-    <Compile Include="Graphics\Cameras\Camera.cs">
-      <Name>Camera</Name>
-    </Compile>
-    <Compile Include="Graphics\Cameras\GodCamera.cs">
-      <Name>GodCamera</Name>
-    </Compile>
-    <Compile Include="Graphics\Cameras\ICameraService.cs">
-      <Name>ICameraService</Name>
-    </Compile>
-    <Compile Include="Graphics\ExtendedEffect.cs">
-      <Name>EffectHelper</Name>
-    </Compile>
-    <Compile Include="Graphics\FrameRateCounter.cs">
-      <Name>FrameRateCounter</Name>
-    </Compile>
-    <Compile Include="Graphics\IProjector.cs">
-      <Name>IProjector</Name>
-    </Compile>
-    <Compile Include="Graphics\ISceneService.cs">
-      <Name>ISceneService</Name>
-    </Compile>
-    <Compile Include="Graphics\ExtendedModel.cs">
-      <Name>Mesh</Name>
-    </Compile>
-    <Compile Include="Graphics\ScreenshotManager.cs">
-      <Name>ScreenshotManager</Name>
-    </Compile>
-    <Compile Include="Graphics\Shadows\IShadowMapService.cs">
-      <Name>IShadowMapService</Name>
-    </Compile>
-    <Compile Include="Graphics\Lights\ILightService.cs">
-      <Name>ILightService</Name>
-    </Compile>
-    <Compile Include="Graphics\Lights\SimpleSunlight.cs">
-      <Name>SimpleSunlight</Name>
-    </Compile>
-    <Compile Include="Graphics\Shadows\ParallelSplitShadowMap.cs">
-      <Name>ParallelSplitShadowMap</Name>
-    </Compile>
-    <Compile Include="Graphics\Projector.cs">
-      <Name>Projector</Name>
-    </Compile>
-    <Compile Include="Graphics\SceneManager.cs">
-      <Name>SceneManager</Name>
-    </Compile>
-    <Compile Include="Graphics\Shadows\ShadowMap.cs">
-      <Name>ShadowMap</Name>
-    </Compile>
-    <Compile Include="Graphics\Shadows\SimpleShadowMap.cs">
-      <Name>SimpleShadowMap</Name>
-    </Compile>
-    <Compile Include="Graphics\SimpleObjects\Cube.cs">
-      <Name>Cube</Name>
-    </Compile>
-    <Compile Include="Gui\ConsoleMenu.cs" />
-    <Compile Include="IntVector2.cs">
-      <Name>IntVector2</Name>
-    </Compile>
-    <Compile Include="MathsHelper.cs">
-      <Name>MathsHelper</Name>
-    </Compile>
-    <Compile Include="PointF.cs">
-      <Name>PointF</Name>
-    </Compile>
+    <Compile Include="Content\HeightMapReader.cs" />
+    <Compile Include="Content\LevelReader.cs" />
+    <Compile Include="Content\PatchReader.cs" />
+    <Compile Include="Content\TerrainModelReader.cs" />
+    <Compile Include="Graphics\ICameraService.cs" />
+    <Compile Include="Graphics\Terrain\HeightMap.cs" />
+    <Compile Include="Graphics\Terrain\TerrainComponent.cs" />
+    <Compile Include="Graphics\Terrain\Level.cs" />
+    <Compile Include="Graphics\Terrain\Patch.cs" />
+    <Compile Include="Graphics\Terrain\TerrainModel.cs" />
+    <Compile Include="Graphics\VertexPositionNormalTexture2.cs" />
+    <Compile Include="MathHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Terrain\GeoClipMapping\Block.cs" />
-    <Compile Include="Terrain\GeoClipMapping\EdgeStitches.cs" />
-    <Compile Include="Terrain\GeoClipMapping\InteriorTrim.cs" />
-    <Compile Include="Terrain\GeoClipMapping\Level.cs" />
-    <Compile Include="Terrain\GeoClipMapping\RingFixups.cs" />
-    <Compile Include="Terrain\GeoClipMapping\Settings.cs" />
-    <Compile Include="Terrain\GeoClipMapping\GeoClipMappedTerrain.cs" />
-    <Compile Include="Terrain\GeoClipMapping\TerrainVertex.cs" />
-    <Compile Include="Terrain\FileHeightMap.cs">
-      <Name>HeightMap</Name>
-    </Compile>
-    <Compile Include="Terrain\GeoMipMapping\IndexBuilder.cs">
-      <Name>IndexBuilder</Name>
-    </Compile>
-    <Compile Include="Terrain\GeoMipMapping\Level.cs">
-      <Name>Level</Name>
-    </Compile>
-    <Compile Include="Terrain\GeoMipMapping\LightMap.cs">
-      <Name>LightMap</Name>
-    </Compile>
-    <Compile Include="Terrain\GeoMipMapping\GeoMipMappedTerrain.cs">
-      <Name>GeoMipMappedTerrain</Name>
-    </Compile>
-    <Compile Include="Terrain\HeightMap.cs" />
-    <Compile Include="Terrain\ITerrainNormalsService.cs" />
-    <Compile Include="Terrain\NormalMap.cs">
-      <Name>NormalMap</Name>
-    </Compile>
-    <Compile Include="Terrain\GeoMipMapping\Patch.cs">
-      <Name>Patch</Name>
-    </Compile>
-    <Compile Include="Terrain\GeoMipMapping\TerrainVertex.cs">
-      <Name>TerrainVertex</Name>
-    </Compile>
-    <Compile Include="Terrain\IHeightMapService.cs" />
-    <Compile Include="Terrain\Simple\SimpleTerrain.cs">
-      <Name>SimpleTerrain</Name>
-    </Compile>
-    <Compile Include="Terrain\ITerrainService.cs">
-      <Name>ITerrainService</Name>
-    </Compile>
-    <Compile Include="Terrain\Terrain.cs">
-      <Name>Terrain</Name>
-    </Compile>
   </ItemGroup>
-  <ItemGroup>
-    <NestedContentProject Include="Content.contentproj">
-      <Project>{386626ce-c522-4bc7-85c2-f1f7db7d16b8}</Project>
-      <Visible>False</Visible>
-    </NestedContentProject>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Builder\OsirisBuilderForm.resx">
-      <DependentUpon>OsirisBuilderForm.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
-      <Visible>False</Visible>
-      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
-      <Install>false</Install>
-    </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
-      <Visible>False</Visible>
-      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
-      <Install>false</Install>
-    </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
-      <Visible>False</Visible>
-      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
-      <Install>false</Install>
-    </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
-      <Visible>False</Visible>
-      <ProductName>.NET Framework 3.5</ProductName>
-      <Install>false</Install>
-    </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
-      <Visible>False</Visible>
-      <ProductName>.NET Framework 3.5 SP1</ProductName>
-      <Install>true</Install>
-    </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
-      <Visible>False</Visible>
-      <ProductName>Windows Installer 3.1</ProductName>
-      <Install>true</Install>
-    </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.Xna.Framework.3.0">
-      <Visible>False</Visible>
-      <ProductName>Microsoft XNA Framework Redistributable 3.0</ProductName>
-      <Install>true</Install>
-    </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.Xna.Framework.4.0">
-      <Visible>False</Visible>
-      <ProductName>Microsoft XNA Framework Redistributable 4.0</ProductName>
-      <Install>true</Install>
-    </BootstrapperPackage>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="SourceContent.contentproj">
-      <Project>{386626CE-C522-4BC7-85C2-F1F7DB7D16B8}</Project>
-      <Name>SourceContent %28Content%29</Name>
-      <XnaReferenceType>Content</XnaReferenceType>
-    </ProjectReference>
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
-  <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\Microsoft.Xna.GameStudio.targets" Condition="" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\Microsoft.Xna.GameStudio.targets" />
+  <!--
+      To modify your build process, add your task inside one of the targets below and uncomment it. 
+      Other similar extension points exist, see Microsoft.Common.targets.
+      <Target Name="BeforeBuild">
+      </Target>
+      <Target Name="AfterBuild">
+      </Target>
+    -->
 </Project>

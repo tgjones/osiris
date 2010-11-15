@@ -1,24 +1,12 @@
-using System;
-using System.Collections.Generic;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Content.Pipeline;
 using Microsoft.Xna.Framework.Content.Pipeline.Graphics;
-
-using TImport = Microsoft.Xna.Framework.Content.Pipeline.Graphics.TextureContent;
 using System.IO;
 
 namespace Osiris.Content.Pipeline
 {
-	/// <summary>
-	/// This class will be instantiated by the XNA Framework Content Pipeline
-	/// to import a file from disk into the specified type, TImport.
-	/// 
-	/// This should be part of a Content Pipeline Extension Library project.
-	/// </summary>
-
-	[ContentImporter(".raw", DisplayName = "RawImporter - Osiris Framework", DefaultProcessor = "TextureProcessor")]
-	public class RawImporter : ContentImporter<TImport>
+	[ContentImporter(".raw", DisplayName = "RAW Texture - Osiris Framework", DefaultProcessor = "TextureProcessor")]
+	public class RawImporter : ContentImporter<TextureContent>
 	{
 		#region Methods
 
@@ -41,7 +29,10 @@ namespace Osiris.Content.Pipeline
 					bitmapContent.SetPixel(x, y, new Color(bytes[(y * width) + x], 0, 0));
 
 			// create and return one-mipmap-level
-			Texture2DContent content = new Texture2DContent();
+			Texture2DContent content = new Texture2DContent
+			{
+				Identity = new ContentIdentity(filename)
+			};
 			content.Mipmaps.Add(bitmapContent);
 			return content;
 		}
