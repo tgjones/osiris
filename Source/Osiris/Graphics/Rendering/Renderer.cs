@@ -139,18 +139,15 @@ namespace Osiris.Graphics.Rendering
 
 			if (state.BlendEnabled)
 			{
-				_graphicsDevice.RenderState.AlphaBlendEnable = true;
-				_graphicsDevice.RenderState.SourceBlend = state.SourceBlend;
-				_graphicsDevice.RenderState.DestinationBlend = state.DestinationBlend;
-
+				_graphicsDevice.BlendState = BlendState.AlphaBlend;
 				// TODO: support RenderState.BlendFactor
 			}
 			else
 			{
-				_graphicsDevice.RenderState.AlphaBlendEnable = false;
+				_graphicsDevice.BlendState = BlendState.Opaque;
 			}
 
-			if (state.TestEnabled)
+			/*if (state.TestEnabled)
 			{
 				_graphicsDevice.RenderState.AlphaTestEnable = true;
 				_graphicsDevice.RenderState.AlphaFunction = state.Test;
@@ -159,14 +156,14 @@ namespace Osiris.Graphics.Rendering
 			else
 			{
 				_graphicsDevice.RenderState.AlphaTestEnable = false;
-			}
+			}*/
 		}
 
 		private void SetCullState(CullState state)
 		{
 			_globalStates[GlobalState.StateType.Cull] = state;
 
-			if (state.Enabled)
+			/*if (state.Enabled)
 				if (ReverseCullFace)
 					if (state.CullFace == CullMode.CullClockwiseFace)
 						_graphicsDevice.RenderState.CullMode = CullMode.CullCounterClockwiseFace;
@@ -175,7 +172,7 @@ namespace Osiris.Graphics.Rendering
 				else
 					_graphicsDevice.RenderState.CullMode = state.CullFace;
 			else
-				_graphicsDevice.RenderState.CullMode = CullMode.None;
+				_graphicsDevice.RenderState.CullMode = CullMode.None;*/
 		}
 
 		private void SetPolygonOffsetState(PolygonOffsetState state)
@@ -184,19 +181,19 @@ namespace Osiris.Graphics.Rendering
 
 			if (state.FillEnabled)
 			{
-				_graphicsDevice.RenderState.SlopeScaleDepthBias = state.Scale;
+				//_graphicsDevice.RenderState.SlopeScaleDepthBias = state.Scale;
 
 				// TO DO.  The renderer currently always creates a 24-bit depth
 				// buffer.  If the precision changes, the adjustment to depth bias
 				// must depend on the bits of precision.  The divisor is 2^n for n
 				// bits of precision.
 				float bias = state.Bias / 16777216.0f;
-				_graphicsDevice.RenderState.DepthBias = bias;
+				//_graphicsDevice.RenderState.DepthBias = bias;
 			}
 			else
 			{
-				_graphicsDevice.RenderState.SlopeScaleDepthBias = 0;
-				_graphicsDevice.RenderState.DepthBias = 0;
+				//_graphicsDevice.RenderState.SlopeScaleDepthBias = 0;
+				//_graphicsDevice.RenderState.DepthBias = 0;
 			}
 		}
 
@@ -206,18 +203,18 @@ namespace Osiris.Graphics.Rendering
 
 			if (state.Enabled)
 			{
-				_graphicsDevice.RenderState.StencilEnable = true;
+				/*_graphicsDevice.RenderState.StencilEnable = true;
 				_graphicsDevice.RenderState.StencilFunction = state.Compare;
 				_graphicsDevice.RenderState.ReferenceStencil = state.Reference;
 				_graphicsDevice.RenderState.StencilMask = state.Mask;
 				_graphicsDevice.RenderState.StencilWriteMask = state.WriteMask;
 				_graphicsDevice.RenderState.StencilFail = state.OnFail;
 				_graphicsDevice.RenderState.StencilDepthBufferFail = state.OnDepthBufferFail;
-				_graphicsDevice.RenderState.StencilPass = state.OnDepthBufferPass;
+				_graphicsDevice.RenderState.StencilPass = state.OnDepthBufferPass;*/
 			}
 			else
 			{
-				_graphicsDevice.RenderState.StencilEnable = false;
+				//_graphicsDevice.RenderState.StencilEnable = false;
 			}
 		}
 
@@ -225,22 +222,22 @@ namespace Osiris.Graphics.Rendering
 		{
 			_globalStates[GlobalState.StateType.Wireframe] = state;
 
-			if (state.Enabled)
+			/*if (state.Enabled)
 				_graphicsDevice.RenderState.FillMode = FillMode.WireFrame;
 			else
-				_graphicsDevice.RenderState.FillMode = FillMode.Solid;
+				_graphicsDevice.RenderState.FillMode = FillMode.Solid;*/
 		}
 
 		private void SetDepthBufferState(DepthBufferState state)
 		{
 			_globalStates[GlobalState.StateType.DepthBuffer] = state;
 
-			if (state.Enabled)
+			/*if (state.Enabled)
 				_graphicsDevice.RenderState.DepthBufferFunction = state.Compare;
 			else
 				_graphicsDevice.RenderState.DepthBufferFunction = CompareFunction.Always;
 
-			_graphicsDevice.RenderState.DepthBufferWriteEnable = state.Writable;
+			_graphicsDevice.RenderState.DepthBufferWriteEnable = state.Writable;*/
 		}
 
 		#endregion
@@ -294,26 +291,19 @@ namespace Osiris.Graphics.Rendering
 			SetGlobalState(geometry.States);
 			_worldMatrix = geometry.World;
 
-			_graphicsDevice.Vertices[0].SetSource(geometry.GeometryContainer.VertexBuffer, 0, geometry.VertexStride);
-			_graphicsDevice.VertexDeclaration = geometry.VertexDeclaration;
+			_graphicsDevice.SetVertexBuffer(geometry.GeometryContainer.VertexBuffer);
 
 			Shader shader = geometry.GetShader();
 			SetRendererConstants(shader);
 			shader.SetParameterValues();
 
-			shader.Effect.Begin();
-
 			foreach (EffectPass pass in shader.Effect.CurrentTechnique.Passes)
 			{
-				pass.Begin();
+				pass.Apply();
 
 				_graphicsDevice.DrawIndexedPrimitives(geometry.Type, geometry.BaseVertex, 0,
 					geometry.NumVertices, geometry.StartIndex, geometry.PrimitiveCount);
-
-				pass.End();
 			}
-
-			shader.Effect.End();
 
 			RestoreGlobalState(geometry.States);
 		}

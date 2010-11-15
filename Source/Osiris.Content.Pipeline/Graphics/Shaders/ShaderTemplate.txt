@@ -44,7 +44,7 @@ struct VertexInput
 [[*** VERTEX_INPUT ***]]
 };
 
-VertexInput gVertexInput;
+static VertexInput gVertexInput;
 
 //**************************************************************
 // End Vertex Input Structure
@@ -124,7 +124,7 @@ struct PixelOutput
 // Begin Vertex Shader Entry Point
 //**************************************************************
 
-VertexOutput VertexShader(const VertexInput input)
+VertexOutput VS(const VertexInput input)
 {
 	gVertexInput = input;
 	
@@ -144,7 +144,7 @@ VertexOutput VertexShader(const VertexInput input)
 // Begin Pixel Shader Entry Point
 //**************************************************************
 
-PixelOutput PixelShader(const PixelInput input)
+PixelOutput PS(const PixelInput input)
 {
 	gPixelInput = input;
 	
@@ -168,8 +168,8 @@ technique
 {
 	pass
 	{
-		VertexShader = compile vs_3_0 VertexShader();
-		PixelShader = compile ps_3_0 PixelShader();
+		VertexShader = compile vs_2_0 VS();
+		PixelShader = compile ps_2_0 PS();
 	}
 }
 

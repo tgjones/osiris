@@ -30,14 +30,14 @@ namespace Osiris.Graphics.SceneGraph.Nodes
 
 			foreach (ModelMesh modelMesh in model.Meshes)
 			{
-				GeometryContainer geometryContainer = new GeometryContainer(
-					modelMesh.VertexBuffer, modelMesh.IndexBuffer);
-
 				foreach (ModelMeshPart modelMeshPart in modelMesh.MeshParts)
 				{
+					GeometryContainer geometryContainer = new GeometryContainer(
+						modelMeshPart.VertexBuffer, modelMeshPart.IndexBuffer);
+
 					TriangleMesh triangleMesh = new TriangleMesh(serviceProvider, geometryContainer,
-						modelMeshPart.StreamOffset, modelMeshPart.BaseVertex, modelMeshPart.NumVertices,
-						modelMeshPart.StartIndex, modelMeshPart.PrimitiveCount, modelMeshPart.VertexDeclaration,
+						modelMeshPart.VertexOffset, modelMeshPart.NumVertices,
+						modelMeshPart.StartIndex, modelMeshPart.PrimitiveCount,
 						boundingSphere);
 
 					triangleMesh.Local = transforms[modelMesh.ParentBone.Index];

@@ -1,0 +1,13 @@
+Content\Models\p1_wedge.xnb
+Content\Textures\wedge_p1_diff_v1.xnb
+Content\ShaderCombinations.xnb
+Content\Osiris\Graphics\ShaderFragments\Lights\DirectionalLight.xnb
+Content\Osiris\Graphics\ShaderFragments\PixelColourOutput.xnb
+Content\Osiris\Graphics\ShaderFragments\BasicMaterial.xnb
+Content\Osiris\Graphics\ShaderFragments\TestColour.xnb
+Content\Osiris\Graphics\ShaderFragments\VertexTypes\GeoClipMapTerrain.xnb
+Content\Osiris\Graphics\ShaderFragments\VertexTypes\PositionNormalTexture.xnb
+Content\Osiris\Graphics\ShaderFragments\VertexTypes\VertexPassThru.xnb
+Content\Osiris\Graphics\ShaderFragments\LightingModels\Phong.xnb
+Content\Osiris\Graphics\ShaderFragments\LightingModels\OrenNayar.xnb
+Content\textures\wedge_p1_diff_v1_0.xnb

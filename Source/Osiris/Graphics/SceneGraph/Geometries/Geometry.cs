@@ -16,14 +16,11 @@ namespace Osiris.Graphics.SceneGraph.Geometries
 	{
 		private Shader _shader;
 
-		public int StreamOffset { get; private set; }
 		public int BaseVertex { get; private set; }
 		public int NumVertices { get; private set; }
 		public int StartIndex { get; private set; }
 		public int PrimitiveCount { get; private set; }
-		public int VertexStride { get; private set; }
 		public GeometryContainer GeometryContainer { get; private set; }
-		public VertexDeclaration VertexDeclaration { get; private set; }
 		public VertexBuffer VertexBuffer;
 		public IndexBuffer IndexBuffer;
 		public BoundingSphere ModelBound;
@@ -36,18 +33,14 @@ namespace Osiris.Graphics.SceneGraph.Geometries
 		internal Rendering.GlobalStates.GlobalStateCollection States;
 
 		public Geometry(IServiceProvider serviceProvider, GeometryContainer geometryContainer,
-			int streamOffset, int baseVertex, int numVertices, int startIndex, int primitiveCount,
-			VertexDeclaration vertexDeclaration)
+			int baseVertex, int numVertices, int startIndex, int primitiveCount)
 			: base(serviceProvider)
 		{
 			GeometryContainer = geometryContainer;
-			StreamOffset = streamOffset;
 			BaseVertex = baseVertex;
 			NumVertices = numVertices;
 			StartIndex = startIndex;
 			PrimitiveCount = primitiveCount;
-			VertexDeclaration = vertexDeclaration;
-			VertexStride = VertexDeclaration.GetVertexStrideSize(0);
 
 			ModelBound = new BoundingSphere();
 
@@ -123,7 +116,7 @@ namespace Osiris.Graphics.SceneGraph.Geometries
 			// Load shader which corresponds to this combination of fragments.
 			IShaderCatalogService shaderCatalog = ServiceProvider.GetService<IShaderCatalogService>();
 			_shader = shaderCatalog.GetShader(ServiceProvider.GetService<IGraphicsDeviceService>().GraphicsDevice,
-				shaderFragmentRequests, VertexDeclaration.GetVertexElements());
+				shaderFragmentRequests, VertexPositionNormalTexture.VertexDeclaration.GetVertexElements());
 
 			PopEffects(effects);
 		}

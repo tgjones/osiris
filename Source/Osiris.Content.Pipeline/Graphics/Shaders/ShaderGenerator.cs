@@ -37,10 +37,10 @@ namespace Osiris.Content.Pipeline.Graphics.Shaders
 			File.WriteAllText(debugFile, shaderCode);
 
 			// Compile the shader.
-			CompiledEffect compiledEffect = CompileShader(context, shaderCode);
+			CompiledEffectContent compiledEffect = CompileShader(context, shaderCode);
 
-			// Check for errors.
-			DoSomethingAwesomeWithErrorsAndWarnings(compiledEffect.Success, compiledEffect.ErrorsAndWarnings, debugFile, context);
+			// TODO: Check for errors.
+			//DoSomethingAwesomeWithErrorsAndWarnings(compiledEffect.Success, compiledEffect.ErrorsAndWarnings, debugFile, context);
 
 			// Get a collection of renderer constants and other shader parameters.
 			Dictionary<string, string> rendererConstants;
@@ -118,9 +118,9 @@ namespace Osiris.Content.Pipeline.Graphics.Shaders
 					result.AppendLine(string.Format("// {0} parameters", f.UniqueName));
 					foreach (ShaderParameterContent parameter in f.Parameters)
 						if (!string.IsNullOrEmpty(parameter.Semantic))
-							result.AppendLine(string.Format("const {0} {1}{2} : {3};", parameter.DataType, f.UniqueName, parameter.Name, parameter.Semantic));
+							result.AppendLine(string.Format("{0} {1}{2} : {3};", parameter.DataType, f.UniqueName, parameter.Name, parameter.Semantic));
 						else
-							result.AppendLine(string.Format("const {0} {1}{2};", parameter.DataType, f.UniqueName, parameter.Name));
+							result.AppendLine(string.Format("{0} {1}{2};", parameter.DataType, f.UniqueName, parameter.Name));
 					result.AppendLine();
 				}
 			);
@@ -240,7 +240,7 @@ namespace Osiris.Content.Pipeline.Graphics.Shaders
 			result.AppendLine();
 
 			// Declare global instance of PixelInput which can be referenced by any fragment's pixel program.
-			result.AppendLine("PixelInput gPixelInput;");
+			result.AppendLine("static PixelInput gPixelInput;");
 			result.AppendLine();
 
 			shaderCode = shaderCode.Replace("[[*** PIXEL_INPUT ***]]", result.ToString());
@@ -310,7 +310,7 @@ namespace Osiris.Content.Pipeline.Graphics.Shaders
 						string variableName = string.Format("{0}_Export_{1}", f.UniqueName, exportName);
 						if (!exports[exportName].Contains(variableName))
 						{
-							result.AppendLine(string.Format("{0} {1}; // exported value", match.Groups["TYPE"].Value, variableName));
+							result.AppendLine(string.Format("static {0} {1}; // exported value", match.Groups["TYPE"].Value, variableName));
 							exports[exportName].Add(variableName);
 						}
 					}
@@ -409,10 +409,12 @@ namespace Osiris.Content.Pipeline.Graphics.Shaders
 
 		#endregion
 
-		private static CompiledEffect CompileShader(ContentProcessorContext context, string shaderCode)
+		private static CompiledEffectContent CompileShader(ContentProcessorContext context, string shaderCode)
 		{
-			CompiledEffect compiledEffect = Effect.CompileEffectFromSource(shaderCode, null, null, CompilerOptions.None, context.TargetPlatform);
-			return compiledEffect;
+			return new EffectProcessor().Process(new EffectContent
+			{
+				EffectCode = shaderCode,
+			}, context);
 		}
 
 		private static void DoSomethingAwesomeWithErrorsAndWarnings(bool success, string errorsAndWarnings, string debugFile, ContentProcessorContext context)

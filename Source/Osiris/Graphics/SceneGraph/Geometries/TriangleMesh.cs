@@ -18,9 +18,9 @@ namespace Osiris.Graphics.SceneGraph.Geometries
 		}
 
 		public TriangleMesh(IServiceProvider serviceProvider, GeometryContainer geometryContainer,
-			int streamOffset, int baseVertex, int numVertices, int startIndex, int primitiveCount,
-			VertexDeclaration vertexDeclaration, BoundingSphere boundingSphere)
-			: base(serviceProvider, geometryContainer, streamOffset, baseVertex, numVertices, startIndex, primitiveCount, vertexDeclaration)
+			int baseVertex, int numVertices, int startIndex, int primitiveCount,
+			BoundingSphere boundingSphere)
+			: base(serviceProvider, geometryContainer, baseVertex, numVertices, startIndex, primitiveCount)
 		{
 			_boundingSphere = boundingSphere;
 		}

@@ -21,8 +21,7 @@
 			</VertexElements>
 			<ShaderFragments>
 				<Item>Osiris\Graphics\ShaderFragments\Lights\DirectionalLight.xml</Item>
-				<Item>Osiris\Graphics\ShaderFragments\Lights\DirectionalLight.xml</Item>
-				<Item>Osiris\Graphics\ShaderFragments\LightingModels\OrenNayar.xml</Item>
+				<Item>Osiris\Graphics\ShaderFragments\LightingModels\Phong.xml</Item>
 				<Item>Osiris\Graphics\ShaderFragments\VertexTypes\PositionNormalTexture.xml</Item>
 				<Item>Osiris\Graphics\ShaderFragments\VertexTypes\VertexPassThru.xml</Item>
 				<Item>Osiris\Graphics\ShaderFragments\PixelColourOutput.xml</Item>
