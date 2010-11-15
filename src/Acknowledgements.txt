@@ -1,2 +1,5 @@
 The terrain heightmap and textures are from
 http://www.chadvernon.com/blog/resources/directx9/detailing-a-terrain-with-multitexturing/
+
+The demo is based on the ChaseCamera and GeneratedGeometry samples from
+http://create.msdn.com/
