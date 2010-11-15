@@ -1,0 +1,58 @@
+﻿<ParticleSystem>
+	<Particles>
+		<Particle Index="0" Position="4,2,-4" Mass="INFINITE_MASS" />
+		<Particle Index="1" Position="5,2,-4" />
+		<Particle Index="2" Position="6,2,-4" />
+		<Particle Index="3" Position="7,2,-4" />
+		<Particle Index="4" Position="4,2,-5" />
+		<Particle Index="5" Position="5,2,-5" />
+		<Particle Index="6" Position="6,2,-5" />
+		<Particle Index="7" Position="7,2,-5" />
+		<Particle Index="8" Position="4,2,-6" />
+		<Particle Index="9" Position="5,2,-6" />
+		<Particle Index="10" Position="6,2,-6" />
+		<Particle Index="11" Position="7,2,-6" />
+		<Particle Index="12" Position="4,2,-7" Mass="INFINITE_MASS" />
+		<Particle Index="13" Position="5,2,-7" />
+		<Particle Index="14" Position="6,2,-7" />
+		<Particle Index="15" Position="7,2,-7" />
+	</Particles>
+	<Constraints>
+		<DistanceConstraint ParticleA="0" ParticleB="1" Stiffness="0.1" />
+		<DistanceConstraint ParticleA="0" ParticleB="4" />
+		<DistanceConstraint ParticleA="0" ParticleB="5" />
+		<DistanceConstraint ParticleA="1" ParticleB="2" />
+		<DistanceConstraint ParticleA="1" ParticleB="5" />
+		<DistanceConstraint ParticleA="1" ParticleB="6" />
+		<DistanceConstraint ParticleA="2" ParticleB="3" />
+		<DistanceConstraint ParticleA="2" ParticleB="6" />
+		<DistanceConstraint ParticleA="2" ParticleB="7" />
+		<DistanceConstraint ParticleA="3" ParticleB="7" />
+
+		<DistanceConstraint ParticleA="4" ParticleB="5" />
+		<DistanceConstraint ParticleA="4" ParticleB="8" />
+		<DistanceConstraint ParticleA="4" ParticleB="9" />
+		<DistanceConstraint ParticleA="5" ParticleB="6" />
+		<DistanceConstraint ParticleA="5" ParticleB="9" />
+		<DistanceConstraint ParticleA="5" ParticleB="10" />
+		<DistanceConstraint ParticleA="6" ParticleB="7" />
+		<DistanceConstraint ParticleA="6" ParticleB="10" />
+		<DistanceConstraint ParticleA="6" ParticleB="11" />
+		<DistanceConstraint ParticleA="7" ParticleB="11" />
+
+		<DistanceConstraint ParticleA="8" ParticleB="9" />
+		<DistanceConstraint ParticleA="8" ParticleB="12" />
+		<DistanceConstraint ParticleA="8" ParticleB="13" />
+		<DistanceConstraint ParticleA="9" ParticleB="10" />
+		<DistanceConstraint ParticleA="9" ParticleB="13" />
+		<DistanceConstraint ParticleA="9" ParticleB="14" />
+		<DistanceConstraint ParticleA="10" ParticleB="11" />
+		<DistanceConstraint ParticleA="10" ParticleB="14" />
+		<DistanceConstraint ParticleA="10" ParticleB="15" />
+		<DistanceConstraint ParticleA="11" ParticleB="15" />
+
+		<DistanceConstraint ParticleA="12" ParticleB="13" />
+		<DistanceConstraint ParticleA="13" ParticleB="14" />
+		<DistanceConstraint ParticleA="14" ParticleB="15" />
+	</Constraints>
+</ParticleSystem>
