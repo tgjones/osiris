@@ -61,8 +61,8 @@ namespace TerrainDemo
 			IsMouseVisible = true;
 
 #if WINDOWS_PHONE
-            graphics.PreferredBackBufferWidth = 480;
-            graphics.PreferredBackBufferHeight = 800;
+            graphics.PreferredBackBufferWidth = 800;
+            graphics.PreferredBackBufferHeight = 480;
             
             TargetElapsedTime = TimeSpan.FromTicks(333333);
 
