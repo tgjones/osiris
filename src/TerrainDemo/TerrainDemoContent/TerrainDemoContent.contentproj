@@ -71,7 +71,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\Osiris.Content.Pipeline\Osiris.Content.Pipeline.csproj">
       <Project>{C82B172E-9F48-4C9C-B7E9-84231F74E635}</Project>
-      <Name>RoastedAmoeba.Xna.Content.Pipeline</Name>
+      <Name>Osiris.Content.Pipeline</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

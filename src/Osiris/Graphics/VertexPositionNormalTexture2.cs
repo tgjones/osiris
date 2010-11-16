@@ -6,7 +6,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Osiris.Graphics
 {
-	[Serializable, StructLayout(LayoutKind.Sequential)]
+	[StructLayout(LayoutKind.Sequential)]
 	public struct VertexPositionNormalTexture2 : IVertexType
 	{
 		public Vector3 Position;

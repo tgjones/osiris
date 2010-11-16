@@ -14,6 +14,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Osiris.Graphics;
 using Osiris.Graphics.Terrain;
+using System;
 
 #endregion
 
@@ -174,8 +175,7 @@ namespace TerrainDemo
 			if (lastKeyboardState.IsKeyUp(Keys.B) &&
 				(currentKeyboardState.IsKeyDown(Keys.B)) ||
 				(lastGamePadState.Buttons.B == ButtonState.Released &&
-				currentGamePadState.Buttons.B == ButtonState.Pressed) ||
-				touchTopLeft)
+				currentGamePadState.Buttons.B == ButtonState.Pressed))
 			{
 				wireframeEnabled = !wireframeEnabled;
 			}

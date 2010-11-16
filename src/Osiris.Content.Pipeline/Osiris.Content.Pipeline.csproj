@@ -72,7 +72,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Osiris\Osiris.csproj">
       <Project>{08BAF095-34F7-49E6-849E-7C457DFCE7F4}</Project>
-      <Name>RoastedAmoeba.Xna</Name>
+      <Name>Osiris</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
