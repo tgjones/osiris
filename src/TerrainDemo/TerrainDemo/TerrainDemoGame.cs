@@ -68,8 +68,8 @@ namespace TerrainDemo
 
             graphics.IsFullScreen = true;
 #else
-			graphics.PreferredBackBufferWidth = 853;
-			graphics.PreferredBackBufferHeight = 480;
+			graphics.PreferredBackBufferWidth = 1024;
+			graphics.PreferredBackBufferHeight = 768;
 #endif
 
 			// Create the chase camera
@@ -237,6 +237,8 @@ namespace TerrainDemo
 			if (wireframeEnabled)
 				GraphicsDevice.RasterizerState = RasterizerState.CullCounterClockwise;
 
+			//GraphicsDevice.BlendState = BlendState.AlphaBlend;
+
 			DrawModel(shipModel, ship.World);
 
 			DrawOverlayText();
@@ -257,6 +259,10 @@ namespace TerrainDemo
 			{
 				foreach (Effect effect in mesh.Effects)
 				{
+					if (effect is BasicEffect)
+					{
+						((BasicEffect) effect).EnableDefaultLighting();
+					}
 					if (effect is IEffectMatrices)
 					{
 						IEffectMatrices effectMatrices = (IEffectMatrices)effect;

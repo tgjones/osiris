@@ -84,6 +84,7 @@
       <ProcessorParameters_ColorTexture>terrain_base_texture.jpg</ProcessorParameters_ColorTexture>
       <ProcessorParameters_DetailTexture>terrain_detail_texture.jpg</ProcessorParameters_DetailTexture>
       <ProcessorParameters_VerticalScale>50</ProcessorParameters_VerticalScale>
+      <ProcessorParameters_DetailTextureTiling>35</ProcessorParameters_DetailTextureTiling>
     </Compile>
   </ItemGroup>
   <ItemGroup>

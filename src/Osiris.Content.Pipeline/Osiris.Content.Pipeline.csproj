@@ -23,6 +23,9 @@
     <XnaPlatform>Windows</XnaPlatform>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Meshellator">
+      <HintPath>..\..\lib\Meshellator\Meshellator.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Xna.Framework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86">
       <Private>False</Private>
       <SpecificVersion>True</SpecificVersion>
@@ -34,6 +37,9 @@
     <Reference Include="Microsoft.Xna.Framework.Content.Pipeline, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86">
       <Private>False</Private>
       <SpecificVersion>true</SpecificVersion>
+    </Reference>
+    <Reference Include="Nexus">
+      <HintPath>..\..\lib\Meshellator\Nexus.dll</HintPath>
     </Reference>
     <Reference Include="System">
       <Private>False</Private>
@@ -49,6 +55,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Autodesk3dsImporter.cs" />
+    <Compile Include="LightwaveObjImporter.cs" />
+    <Compile Include="MeshellatorImporter.cs" />
     <Compile Include="Processors\FloatingPointTextureProcessor.cs" />
     <Compile Include="Graphics\Terrain\HeightMapContent.cs" />
     <Compile Include="Processors\IndexBuilder.cs" />
