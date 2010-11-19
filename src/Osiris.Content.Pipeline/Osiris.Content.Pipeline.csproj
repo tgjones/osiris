@@ -56,6 +56,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Autodesk3dsImporter.cs" />
+    <Compile Include="NffImporter.cs" />
     <Compile Include="LightwaveObjImporter.cs" />
     <Compile Include="MeshellatorImporter.cs" />
     <Compile Include="Processors\FloatingPointTextureProcessor.cs" />

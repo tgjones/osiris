@@ -4,5 +4,11 @@ http://www.chadvernon.com/blog/resources/directx9/detailing-a-terrain-with-multi
 The terrain demo is based on the ChaseCamera and GeneratedGeometry samples from
 http://create.msdn.com/
 
-The models demo is based on the ObjImporter sample from
+The models demo, including Tank.obj, is based on the ObjImporter sample from
 http://create.msdn.com/
+
+75Cathedral-model.3ds is from
+http://artist-3d.com/free_3d_models/dnm/model_disp.php?uid=678&count=count
+
+Nissan.3ds is from
+http://artist-3d.com/free_3d_models/dnm/model_disp.php?uid=798&count=count

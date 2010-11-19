@@ -6,6 +6,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content.Pipeline;
 using Microsoft.Xna.Framework.Content.Pipeline.Graphics;
 using Nexus;
+using Nexus.Graphics.Transforms;
 
 namespace Osiris.Content.Pipeline
 {
@@ -45,38 +46,45 @@ namespace Osiris.Content.Pipeline
 				// Convert Meshellator scene to XNA mesh.
 				foreach (Mesh mesh in scene.Meshes)
 				{
-					MeshBuilder meshBuilder = MeshBuilder.StartMesh(mesh.Name);
-					meshBuilder.SwapWindingOrder = SwapWindingOrder;
-
-					// Set material.
-					meshBuilder.SetMaterial(materials[mesh.Material]);
-
-					// Add additional vertex channels for texture coordinates and normals
-					int textureCoordinateDataIndex = meshBuilder.CreateVertexChannel<Vector2>(VertexChannelNames.TextureCoordinate(0));
-					int normalDataIndex = meshBuilder.CreateVertexChannel<Vector3>(VertexChannelNames.Normal());
-
-					int[] positionMap = new int[mesh.Indices.Count];
-					for (int i = 0; i < mesh.Indices.Count; ++i)
+					MeshContent meshContent = new MeshContent
 					{
-						int meshIndex = mesh.Indices[i];
-						int index = meshBuilder.CreatePosition(ConvertPoint3D(mesh.Positions[meshIndex]));
-						positionMap[i] = index;
-					}
+						Name = mesh.Name
+					};
+					foreach (Point3D position in mesh.Positions)
+						meshContent.Positions.Add(ConvertPoint3D(position));
 
-					for (int i = 0; i < mesh.Indices.Count; ++i)
+					GeometryContent geometryContent = new GeometryContent
 					{
-						int meshIndex = mesh.Indices[i];
+						Material = materials[mesh.Material]
+					};
+					meshContent.Geometry.Add(geometryContent);
 
-						Vector2 texCoord = (mesh.TextureCoordinates.Count > meshIndex)
-							? ConvertTextureCoordinate(mesh.TextureCoordinates[meshIndex])
+					geometryContent.Indices.AddRange(mesh.Indices);
+
+					for (int i = 0; i < mesh.Positions.Count; ++i)
+						geometryContent.Vertices.Add(i);
+
+					List<Vector2> textureCoordinates = new List<Vector2>();
+					for (int i = 0; i < mesh.Positions.Count; ++i)
+					{
+						Vector2 textureCoordinate = (i < mesh.TextureCoordinates.Count)
+							? ConvertTextureCoordinate(mesh.TextureCoordinates[i])
 							: Vector2.Zero;
-						meshBuilder.SetVertexChannelData(textureCoordinateDataIndex, texCoord);
-						meshBuilder.SetVertexChannelData(normalDataIndex, ConvertVector3D(mesh.Normals[meshIndex]));
-						meshBuilder.AddTriangleVertex(positionMap[i]);
+						textureCoordinates.Add(textureCoordinate);
 					}
-					
+					geometryContent.Vertices.Channels.Add(VertexChannelNames.TextureCoordinate(0), textureCoordinates);
+
+					List<Vector3> normals = new List<Vector3>();
+					foreach (Vector3D normal in mesh.Normals)
+						normals.Add(ConvertVector3D(normal));
+					geometryContent.Vertices.Channels.Add(VertexChannelNames.Normal(), normals);
+
+					// Finish the mesh and set the transform.
+					if (SwapWindingOrder)
+						MeshHelper.SwapWindingOrder(meshContent);
+					meshContent.Transform = ConvertTransform(mesh.Transform);
+
 					// Add the mesh to the model
-					MeshContent meshContent = meshBuilder.FinishMesh();
 					rootNode.Children.Add(meshContent);
 				}
 
@@ -94,6 +102,31 @@ namespace Osiris.Content.Pipeline
 					"Unable to parse file. Exception:\n" + e.ToString(),
 					rootNode.Identity, e);
 			}
+		}
+
+		private static Matrix ConvertTransform(Transform3D transform)
+		{
+			Matrix3D transformMatrix = transform.Value;
+
+			return new Matrix
+			{
+				M11 = transformMatrix.M11,
+				M12 = transformMatrix.M12,
+				M13 = transformMatrix.M13,
+				M14 = transformMatrix.M14,
+				M21 = transformMatrix.M21,
+				M22 = transformMatrix.M22,
+				M23 = transformMatrix.M23,
+				M24 = transformMatrix.M24,
+				M31 = transformMatrix.M31,
+				M32 = transformMatrix.M32,
+				M33 = transformMatrix.M33,
+				M34 = transformMatrix.M34,
+				M41 = transformMatrix.M41,
+				M42 = transformMatrix.M42,
+				M43 = transformMatrix.M43,
+				M44 = transformMatrix.M44,
+			};
 		}
 
 		private static Dictionary<Material, MaterialContent> GetMaterials(Scene scene)

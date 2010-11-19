@@ -1,0 +1,17 @@
+﻿# A material
+f 0.3 0.3 0.3 0.8 0.2 16 0
+
+# A plane at 0 0 0 with a 'width' of 300 and 'height' of 200
+x-plane 0 0 0 50 40
+
+# A red material
+f 0.8 0.1 0.1 0.8 0.2 16 0
+
+# A cube at -50 0 0 with a 'size' of 50
+x-cube -50 0 0 50
+
+# A green material
+f 0.1 0.8 0.1 0.8 0.2 16 0
+
+# A teapot at 50 0 0 with a 'size' of 50
+tess 10 x-teapot 50 0 0 50

@@ -1,0 +1,5 @@
+﻿# A gray material
+f 0.3 0.3 0.3 0.8 0.2 16 0
+
+# A plane at 0 0 0 with a 'width' of 100 and 'height' of 200
+x-plane 0 0 0 50 40
