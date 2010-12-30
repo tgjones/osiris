@@ -1,5 +1,6 @@
 Content\Tank.xnb
 Content\Nissan.xnb
+Content\75Cathedral-model.xnb
 Content\Primitives\Sphere.xnb
 Content\Primitives\Teapot.xnb
 Content\Primitives\Torus.xnb
@@ -8,6 +9,6 @@ Content\Primitives\Cube.xnb
 Content\Primitives\Plane.xnb
 Content\Primitives\Combined.xnb
 Content\gameFont.xnb
+Content\SimpleEffect.xnb
 Content\turret_alt_diff_tex_small_0.xnb
 Content\engine_diff_tex_small_0.xnb
-Content\75Cathedral-model.xnb

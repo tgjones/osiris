@@ -53,9 +53,16 @@ namespace Osiris.Content.Pipeline
 					foreach (Point3D position in mesh.Positions)
 						meshContent.Positions.Add(ConvertPoint3D(position));
 
+					MaterialContent material = (mesh.Material != null)
+					                           	? materials[mesh.Material]
+					                           	: new BasicMaterialContent
+					                           	{
+					                           		DiffuseColor = new Vector3(0.5f),
+					                           		VertexColorEnabled = false
+					                           	};
 					GeometryContent geometryContent = new GeometryContent
 					{
-						Material = materials[mesh.Material]
+						Material = material
 					};
 					meshContent.Geometry.Add(geometryContent);
 

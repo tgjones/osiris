@@ -46,6 +46,7 @@
       <Name>Tank</Name>
       <Importer>LightwaveObjImporter</Importer>
       <Processor>ModelProcessor</Processor>
+      <ProcessorParameters_RotationY>1</ProcessorParameters_RotationY>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -122,6 +123,13 @@
       <Name>75Cathedral-model</Name>
       <Importer>Autodesk3dsImporter</Importer>
       <Processor>ModelProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="SimpleEffect.fx">
+      <Name>SimpleEffect</Name>
+      <Importer>EffectImporter</Importer>
+      <Processor>EffectProcessor</Processor>
     </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />

@@ -9,14 +9,10 @@ namespace Osiris.Graphics.Terrain
 		private readonly int _numPatchesY;
 		private readonly Patch[,] _patches;
 		private readonly float _tau;
-		private readonly Effect _effect;
 
 		public HeightMap HeightMap { get; private set; }
 
-		public Effect Effect
-		{
-			get { return _effect; }
-		}
+		public Effect Effect { get; set; }
 
 		internal TerrainModel(int numPatchesX, int numPatchesY, Patch[,] patches, HeightMap heightMap, float tau, Effect effect)
 		{
@@ -25,7 +21,7 @@ namespace Osiris.Graphics.Terrain
 			_numPatchesY = numPatchesY;
 			_patches = patches;
 			_tau = tau;
-			_effect = effect;
+			Effect = effect;
 		}
 
 		public void Initialize(ICameraService camera, GraphicsDevice graphicsDevice)
@@ -97,7 +93,7 @@ namespace Osiris.Graphics.Terrain
 					//if (_patches[x, y].Visible)
 					//{
 						// start effect rendering
-						foreach (EffectPass pass in _effect.CurrentTechnique.Passes)
+						foreach (EffectPass pass in Effect.CurrentTechnique.Passes)
 						{
 							pass.Apply();
 							_patches[x, y].Draw();
