@@ -1,4 +1,4 @@
-namespace Osiris.Content.Pipeline.Graphics.Terrain
+namespace Osiris.Terrain.Content.Pipeline.Graphics
 {
 	public class HeightMapContent
 	{

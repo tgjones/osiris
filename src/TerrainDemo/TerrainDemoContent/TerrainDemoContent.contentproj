@@ -83,6 +83,10 @@
       <Project>{C82B172E-9F48-4C9C-B7E9-84231F74E635}</Project>
       <Name>Osiris.Content.Pipeline</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Osiris.Terrain.Content.Pipeline\Osiris.Terrain.Content.Pipeline.csproj">
+      <Project>{51DC914E-D65D-4C46-AFDC-AB10A201AD63}</Project>
+      <Name>Osiris.Terrain.Content.Pipeline</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Terrain\HeightMap.raw">

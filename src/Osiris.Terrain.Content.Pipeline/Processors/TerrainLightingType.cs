@@ -1,4 +1,4 @@
-namespace Osiris.Content.Pipeline.Processors
+namespace Osiris.Terrain.Content.Pipeline.Processors
 {
 	public enum TerrainLightingType
 	{

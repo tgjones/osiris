@@ -1,10 +1,10 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content.Pipeline.Processors;
 using Microsoft.Xna.Framework.Graphics;
-using Osiris.Content.Pipeline.Graphics.Terrain;
 using Osiris.Graphics;
+using Osiris.Terrain.Content.Pipeline.Graphics;
 
-namespace Osiris.Content.Pipeline.Processors
+namespace Osiris.Terrain.Content.Pipeline.Processors
 {
 	public class PatchContentBuilder
 	{

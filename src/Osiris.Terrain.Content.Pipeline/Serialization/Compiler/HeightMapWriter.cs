@@ -1,8 +1,8 @@
 using Microsoft.Xna.Framework.Content.Pipeline;
 using Microsoft.Xna.Framework.Content.Pipeline.Serialization.Compiler;
-using Osiris.Content.Pipeline.Graphics.Terrain;
+using Osiris.Terrain.Content.Pipeline.Graphics;
 
-namespace Osiris.Content.Pipeline.Serialization.Compiler
+namespace Osiris.Terrain.Content.Pipeline.Serialization.Compiler
 {
 	[ContentTypeWriter]
 	public class HeightMapWriter : ContentTypeWriter<HeightMapContent>

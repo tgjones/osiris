@@ -1,7 +1,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content.Pipeline.Processors;
 
-namespace Osiris.Content.Pipeline.Graphics.Terrain
+namespace Osiris.Terrain.Content.Pipeline.Graphics
 {
 	public class PatchContent
 	{

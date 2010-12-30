@@ -16,6 +16,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OsirisPhone", "Osiris\Osiri
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TerrainDemoPhone", "TerrainDemo\TerrainDemo\TerrainDemoPhone.csproj", "{E151078F-EF5C-4229-9E4A-BF15D6A1C833}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Osiris.Terrain.Content.Pipeline", "Osiris.Terrain.Content.Pipeline\Osiris.Terrain.Content.Pipeline.csproj", "{51DC914E-D65D-4C46-AFDC-AB10A201AD63}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Mixed Platforms = Debug|Mixed Platforms
@@ -80,6 +82,18 @@ Global
 		{E151078F-EF5C-4229-9E4A-BF15D6A1C833}.Release|Windows Phone.Build.0 = Release|Windows Phone
 		{E151078F-EF5C-4229-9E4A-BF15D6A1C833}.Release|Windows Phone.Deploy.0 = Release|Windows Phone
 		{E151078F-EF5C-4229-9E4A-BF15D6A1C833}.Release|x86.ActiveCfg = Release|Windows Phone
+		{51DC914E-D65D-4C46-AFDC-AB10A201AD63}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{51DC914E-D65D-4C46-AFDC-AB10A201AD63}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{51DC914E-D65D-4C46-AFDC-AB10A201AD63}.Debug|Windows Phone.ActiveCfg = Debug|x86
+		{51DC914E-D65D-4C46-AFDC-AB10A201AD63}.Debug|Windows Phone.Build.0 = Debug|x86
+		{51DC914E-D65D-4C46-AFDC-AB10A201AD63}.Debug|x86.ActiveCfg = Debug|x86
+		{51DC914E-D65D-4C46-AFDC-AB10A201AD63}.Debug|x86.Build.0 = Debug|x86
+		{51DC914E-D65D-4C46-AFDC-AB10A201AD63}.Release|Mixed Platforms.ActiveCfg = Debug|x86
+		{51DC914E-D65D-4C46-AFDC-AB10A201AD63}.Release|Mixed Platforms.Build.0 = Debug|x86
+		{51DC914E-D65D-4C46-AFDC-AB10A201AD63}.Release|Windows Phone.ActiveCfg = Debug|x86
+		{51DC914E-D65D-4C46-AFDC-AB10A201AD63}.Release|Windows Phone.Build.0 = Debug|x86
+		{51DC914E-D65D-4C46-AFDC-AB10A201AD63}.Release|x86.ActiveCfg = Debug|x86
+		{51DC914E-D65D-4C46-AFDC-AB10A201AD63}.Release|x86.Build.0 = Debug|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
