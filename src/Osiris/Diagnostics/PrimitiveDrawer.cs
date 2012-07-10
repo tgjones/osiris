@@ -4,7 +4,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Osiris.Diagnostics
 {
-	internal class PrimitiveDrawer
+	internal class PrimitiveDrawer : IDisposable
 	{
 		private readonly GraphicsDevice _graphicsDevice;
 		private readonly BasicEffect _effect;

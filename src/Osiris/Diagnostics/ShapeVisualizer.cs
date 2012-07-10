@@ -15,6 +15,8 @@ namespace Osiris.Diagnostics
 			set
 			{
 				_graphicsDevice = value;
+				if (_primitiveDrawer != null)
+					_primitiveDrawer.Dispose();
 				_primitiveDrawer = new PrimitiveDrawer(value);
 			}
 		}
