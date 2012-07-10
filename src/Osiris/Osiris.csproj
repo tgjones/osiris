@@ -92,6 +92,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Diagnostics\BoxVisualizer.cs" />
+    <Compile Include="Diagnostics\PrimitiveDrawer.cs" />
+    <Compile Include="Diagnostics\ShapeVisualizer.cs" />
     <Compile Include="Graphics\VertexPositionNormalTexture2.cs" />
     <Compile Include="MathHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
