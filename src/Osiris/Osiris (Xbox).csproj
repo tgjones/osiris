@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <ProjectGuid>{ad45d350-6c9b-49bb-a60c-fef070eaf650}</ProjectGuid>
+    <ProjectGuid>{AD45D350-6C9B-49BB-A60C-FEF070EAF650}</ProjectGuid>
     <ProjectTypeGuids>{6D335F3A-9D43-41b4-9D22-F6F17C4BE596};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">Xbox 360</Platform>
@@ -42,16 +42,6 @@
   </PropertyGroup>
   <ItemGroup />
   <ItemGroup>
-    <Compile Include="Content\HeightMapReader.cs" />
-    <Compile Include="Content\LevelReader.cs" />
-    <Compile Include="Content\PatchReader.cs" />
-    <Compile Include="Content\TerrainModelReader.cs" />
-    <Compile Include="Graphics\ICameraService.cs" />
-    <Compile Include="Graphics\Terrain\HeightMap.cs" />
-    <Compile Include="Graphics\Terrain\TerrainComponent.cs" />
-    <Compile Include="Graphics\Terrain\Level.cs" />
-    <Compile Include="Graphics\Terrain\Patch.cs" />
-    <Compile Include="Graphics\Terrain\TerrainModel.cs" />
     <Compile Include="Graphics\VertexPositionNormalTexture2.cs" />
     <Compile Include="MathHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -1,7 +1,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace Osiris.Graphics.Terrain
+namespace Osiris.Terrain.Graphics
 {
 	/// <summary>
 	/// Summary description for Patch.

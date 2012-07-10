@@ -177,6 +177,10 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Osiris.Terrain\Osiris.Terrain.csproj">
+      <Project>{14DF4440-CC82-4008-B38C-D498743EBC9B}</Project>
+      <Name>Osiris.Terrain</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Osiris\Osiris.csproj">
       <Project>{08BAF095-34F7-49E6-849E-7C457DFCE7F4}</Project>
       <Name>Osiris</Name>

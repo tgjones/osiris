@@ -1,9 +1,9 @@
 using System;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
-using Osiris.Graphics.Terrain;
+using Osiris.Terrain.Graphics;
 
-namespace Osiris.Content
+namespace Osiris.Terrain.Content
 {
 	public class TerrainModelReader : ContentTypeReader<TerrainModel>
 	{

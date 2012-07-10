@@ -12,6 +12,7 @@
 using System;
 using Microsoft.Xna.Framework;
 using Osiris.Graphics;
+using Osiris.Terrain.Graphics;
 
 #endregion
 

@@ -1,6 +1,6 @@
 using Microsoft.Xna.Framework;
 
-namespace Osiris.Graphics
+namespace Osiris.Terrain.Graphics
 {
 	public interface ICameraService
 	{

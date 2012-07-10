@@ -1,7 +1,7 @@
 using Microsoft.Xna.Framework.Content;
-using Osiris.Graphics.Terrain;
+using Osiris.Terrain.Graphics;
 
-namespace Osiris.Content
+namespace Osiris.Terrain.Content
 {
 	public class HeightMapReader : ContentTypeReader<HeightMap>
 	{

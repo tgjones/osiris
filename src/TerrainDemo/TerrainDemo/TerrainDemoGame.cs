@@ -13,8 +13,8 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Osiris.Graphics;
-using Osiris.Graphics.Terrain;
 using System;
+using Osiris.Terrain.Graphics;
 
 #endregion
 

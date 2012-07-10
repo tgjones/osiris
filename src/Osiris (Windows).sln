@@ -24,6 +24,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Osiris (Xbox)", "Osiris\Osi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Osiris.Terrain.Content.Pipeline", "Osiris.Terrain.Content.Pipeline\Osiris.Terrain.Content.Pipeline.csproj", "{51DC914E-D65D-4C46-AFDC-AB10A201AD63}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Osiris.Terrain", "Osiris.Terrain\Osiris.Terrain.csproj", "{14DF4440-CC82-4008-B38C-D498743EBC9B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Mixed Platforms = Debug|Mixed Platforms
@@ -116,6 +118,16 @@ Global
 		{51DC914E-D65D-4C46-AFDC-AB10A201AD63}.Release|x86.Build.0 = Debug|x86
 		{51DC914E-D65D-4C46-AFDC-AB10A201AD63}.Release|Xbox 360.ActiveCfg = Debug|x86
 		{51DC914E-D65D-4C46-AFDC-AB10A201AD63}.Release|Xbox 360.Build.0 = Debug|x86
+		{14DF4440-CC82-4008-B38C-D498743EBC9B}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{14DF4440-CC82-4008-B38C-D498743EBC9B}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{14DF4440-CC82-4008-B38C-D498743EBC9B}.Debug|x86.ActiveCfg = Debug|x86
+		{14DF4440-CC82-4008-B38C-D498743EBC9B}.Debug|x86.Build.0 = Debug|x86
+		{14DF4440-CC82-4008-B38C-D498743EBC9B}.Debug|Xbox 360.ActiveCfg = Debug|x86
+		{14DF4440-CC82-4008-B38C-D498743EBC9B}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{14DF4440-CC82-4008-B38C-D498743EBC9B}.Release|Mixed Platforms.Build.0 = Release|x86
+		{14DF4440-CC82-4008-B38C-D498743EBC9B}.Release|x86.ActiveCfg = Release|x86
+		{14DF4440-CC82-4008-B38C-D498743EBC9B}.Release|x86.Build.0 = Release|x86
+		{14DF4440-CC82-4008-B38C-D498743EBC9B}.Release|Xbox 360.ActiveCfg = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
