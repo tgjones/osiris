@@ -10,69 +10,32 @@ namespace ShapeVisualizerDemo
 	/// </summary>
 	public class ShapeVisualizerGame : Microsoft.Xna.Framework.Game
 	{
-		GraphicsDeviceManager graphics;
-		SpriteBatch spriteBatch;
-		private SpriteFont spriteFont;
-
-		KeyboardState lastKeyboardState = new KeyboardState();
-		KeyboardState currentKeyboardState = new KeyboardState();
-
-		private int _activeShape = 0;
+		private SpriteBatch _spriteBatch;
+		private SpriteFont _spriteFont;
+		private int _activeShape;
 
 		public ShapeVisualizerGame()
 		{
-			graphics = new GraphicsDeviceManager(this);
+			new GraphicsDeviceManager(this);
 			Content.RootDirectory = "Content";
 		}
 
-		/// <summary>
-		/// Allows the game to perform any initialization it needs to before starting to run.
-		/// This is where it can query for any required services and load any non-graphic
-		/// related content.  Calling base.Initialize will enumerate through any components
-		/// and initialize them as well.
-		/// </summary>
-		protected override void Initialize()
-		{
-			// TODO: Add your initialization logic here
-
-			base.Initialize();
-		}
-
-		/// <summary>
-		/// LoadContent will be called once per game and is the place to load
-		/// all of your content.
-		/// </summary>
 		protected override void LoadContent()
 		{
 			// Create a new SpriteBatch, which can be used to draw textures.
-			spriteBatch = new SpriteBatch(GraphicsDevice);
-			spriteFont = Content.Load<SpriteFont>("gameFont");
+			_spriteBatch = new SpriteBatch(GraphicsDevice);
+			_spriteFont = Content.Load<SpriteFont>("gameFont");
 
 			ShapeVisualizer.GraphicsDevice = GraphicsDevice;
 		}
 
-		/// <summary>
-		/// UnloadContent will be called once per game and is the place to unload
-		/// all content.
-		/// </summary>
-		protected override void UnloadContent()
-		{
-			// TODO: Unload any non ContentManager content here
-		}
-
-		/// <summary>
-		/// Allows the game to run logic such as updating the world,
-		/// checking for collisions, gathering input, and playing audio.
-		/// </summary>
-		/// <param name="gameTime">Provides a snapshot of timing values.</param>
 		protected override void Update(GameTime gameTime)
 		{
 			// Allows the game to exit
 			if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
-				this.Exit();
+				Exit();
 
-			lastKeyboardState = currentKeyboardState;
-			currentKeyboardState = Keyboard.GetState();
+			var currentKeyboardState = Keyboard.GetState();
 
 			// Check for model change.
 			if (currentKeyboardState.IsKeyDown(Keys.D1))
@@ -97,10 +60,6 @@ namespace ShapeVisualizerDemo
 			base.Update(gameTime);
 		}
 
-		/// <summary>
-		/// This is called when the game should draw itself.
-		/// </summary>
-		/// <param name="gameTime">Provides a snapshot of timing values.</param>
 		protected override void Draw(GameTime gameTime)
 		{
 			GraphicsDevice.Clear(Color.CornflowerBlue);
@@ -153,17 +112,17 @@ namespace ShapeVisualizerDemo
 		/// </summary>
 		private void DrawOverlayText()
 		{
-			spriteBatch.Begin();
+			_spriteBatch.Begin();
 
-			string text = "Press the number keys (1-9) to switch between shapes..";
+			const string text = "Press the number keys (1-9) to switch between shapes..";
 
 			// Draw the string twice to create a drop shadow, first colored black
 			// and offset one pixel to the bottom right, then again in white at the
 			// intended position. This makes text easier to read over the background.
-			spriteBatch.DrawString(spriteFont, text, new Vector2(10, 10), Color.Black);
-			spriteBatch.DrawString(spriteFont, text, new Vector2(9, 9), Color.White);
+			_spriteBatch.DrawString(_spriteFont, text, new Vector2(10, 10), Color.Black);
+			_spriteBatch.DrawString(_spriteFont, text, new Vector2(9, 9), Color.White);
 
-			spriteBatch.End();
+			_spriteBatch.End();
 		}
 	}
 }
