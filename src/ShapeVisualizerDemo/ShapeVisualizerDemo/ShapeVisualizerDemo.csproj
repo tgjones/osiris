@@ -116,6 +116,10 @@
     <Content Include="GameThumbnail.png" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Osiris\Osiris.csproj">
+      <Project>{08BAF095-34F7-49E6-849E-7C457DFCE7F4}</Project>
+      <Name>Osiris</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ShapeVisualizerDemoContent\ShapeVisualizerDemoContent.contentproj">
       <Name>ShapeVisualizerDemoContent %28Content%29</Name>
       <XnaReferenceType>Content</XnaReferenceType>

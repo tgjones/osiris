@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Osiris.Diagnostics;
 
 namespace ShapeVisualizerDemo
 {
@@ -40,7 +41,7 @@ namespace ShapeVisualizerDemo
 			// Create a new SpriteBatch, which can be used to draw textures.
 			spriteBatch = new SpriteBatch(GraphicsDevice);
 
-			// TODO: use this.Content to load your game content here
+			ShapeVisualizer.GraphicsDevice = GraphicsDevice;
 		}
 
 		/// <summary>
@@ -76,7 +77,15 @@ namespace ShapeVisualizerDemo
 		{
 			GraphicsDevice.Clear(Color.CornflowerBlue);
 
-			// TODO: Add your drawing code here
+			Vector3 cameraPosition = Vector3.Backward * 2;
+			Matrix cameraView = Matrix.CreateLookAt(cameraPosition, Vector3.Zero, Vector3.Up);
+			Matrix cameraProjection = Matrix.CreatePerspectiveFieldOfView(MathHelper.ToRadians(55),
+				GraphicsDevice.Viewport.AspectRatio, 1, 100);
+			float rotationAngle = (float)gameTime.TotalGameTime.TotalSeconds / 3.0f;
+			Quaternion rotation = Quaternion.CreateFromYawPitchRoll(rotationAngle, 0, 0);
+
+			ShapeVisualizer.DrawWireframeBox(cameraPosition, cameraView, cameraProjection,
+				Vector3.Zero, Vector3.One, rotation, Color.Red);
 
 			base.Draw(gameTime);
 		}

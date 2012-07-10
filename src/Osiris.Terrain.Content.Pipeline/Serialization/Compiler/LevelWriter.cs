@@ -10,7 +10,7 @@ namespace Osiris.Terrain.Content.Pipeline.Serialization.Compiler
 	{
 		public override string GetRuntimeReader(TargetPlatform targetPlatform)
 		{
-			return "Osiris.Content.LevelReader, Osiris";
+			return "Osiris.Terrain.Content.LevelReader, Osiris.Terrain";
 		}
 
 		protected override void Write(ContentWriter output, LevelContent value)
