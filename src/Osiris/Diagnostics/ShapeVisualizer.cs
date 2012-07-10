@@ -34,5 +34,17 @@ namespace Osiris.Diagnostics
 			BoxVisualizer.DrawWireframe(_primitiveDrawer, cameraPosition, cameraView, cameraProjection,
 				center, size, rotation, color);
 		}
+
+		public static void DrawWireframeFrustum(Matrix cameraView, Matrix cameraProjection, BoundingFrustum frustum, Color color)
+		{
+			EnsureGraphicsDevice();
+			FrustumVisualizer.DrawWireframe(_primitiveDrawer, cameraView, cameraProjection, frustum, color);
+		}
+
+		public static void DrawSolidRectangle(Matrix cameraView, Matrix cameraProjection, Vector3[] corners, Color color)
+		{
+			EnsureGraphicsDevice();
+			RectangleVisualizer.DrawSolid(_primitiveDrawer, cameraView, cameraProjection, corners, color);
+		}
 	}
 }

@@ -12,6 +12,12 @@ namespace ShapeVisualizerDemo
 	{
 		GraphicsDeviceManager graphics;
 		SpriteBatch spriteBatch;
+		private SpriteFont spriteFont;
+
+		KeyboardState lastKeyboardState = new KeyboardState();
+		KeyboardState currentKeyboardState = new KeyboardState();
+
+		private int _activeShape = 0;
 
 		public ShapeVisualizerGame()
 		{
@@ -40,6 +46,7 @@ namespace ShapeVisualizerDemo
 		{
 			// Create a new SpriteBatch, which can be used to draw textures.
 			spriteBatch = new SpriteBatch(GraphicsDevice);
+			spriteFont = Content.Load<SpriteFont>("gameFont");
 
 			ShapeVisualizer.GraphicsDevice = GraphicsDevice;
 		}
@@ -64,7 +71,28 @@ namespace ShapeVisualizerDemo
 			if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
 				this.Exit();
 
-			// TODO: Add your update logic here
+			lastKeyboardState = currentKeyboardState;
+			currentKeyboardState = Keyboard.GetState();
+
+			// Check for model change.
+			if (currentKeyboardState.IsKeyDown(Keys.D1))
+				_activeShape = 0;
+			else if (currentKeyboardState.IsKeyDown(Keys.D2))
+				_activeShape = 1;
+			else if (currentKeyboardState.IsKeyDown(Keys.D3))
+				_activeShape = 2;
+			else if (currentKeyboardState.IsKeyDown(Keys.D4))
+				_activeShape = 3;
+			else if (currentKeyboardState.IsKeyDown(Keys.D5))
+				_activeShape = 4;
+			else if (currentKeyboardState.IsKeyDown(Keys.D6))
+				_activeShape = 5;
+			else if (currentKeyboardState.IsKeyDown(Keys.D7))
+				_activeShape = 6;
+			else if (currentKeyboardState.IsKeyDown(Keys.D8))
+				_activeShape = 7;
+			else if (currentKeyboardState.IsKeyDown(Keys.D9))
+				_activeShape = 8;
 
 			base.Update(gameTime);
 		}
@@ -84,10 +112,58 @@ namespace ShapeVisualizerDemo
 			float rotationAngle = (float)gameTime.TotalGameTime.TotalSeconds / 3.0f;
 			Quaternion rotation = Quaternion.CreateFromYawPitchRoll(rotationAngle, 0, 0);
 
-			ShapeVisualizer.DrawWireframeBox(cameraPosition, cameraView, cameraProjection,
-				Vector3.Zero, Vector3.One, rotation, Color.Red);
+			switch (_activeShape)
+			{
+				case 0:
+					ShapeVisualizer.DrawWireframeBox(cameraPosition, cameraView, cameraProjection,
+						Vector3.Zero, Vector3.One, rotation, Color.Red);
+					break;
+				case 1:
+				{
+					var matrix = Matrix.CreateLookAt(new Vector3(-5, 1, -5), new Vector3(0, 0, -10), Vector3.Up) *
+						Matrix.CreatePerspectiveFieldOfView(MathHelper.PiOver4, 1, 1, 10);
+					var frustum = new BoundingFrustum(matrix);
+					
+					ShapeVisualizer.DrawWireframeFrustum(cameraView, cameraProjection, frustum, Color.Gray);
+
+					break;
+				}
+				case 2 :
+				{
+					var corners = new[]
+					{
+						new Vector3(-1, -1, 0),
+						new Vector3(1, -1, -1),
+						new Vector3(-1, 1, 0),
+						new Vector3(1, 1, -3)
+					};
+					ShapeVisualizer.DrawSolidRectangle(cameraView, cameraProjection, corners, Color.Blue);
+					break;
+				}
+			}
+			
+			DrawOverlayText();
 
 			base.Draw(gameTime);
+		}
+
+		/// <summary>
+		/// Displays an overlay showing what the controls are,
+		/// and which settings are currently selected.
+		/// </summary>
+		private void DrawOverlayText()
+		{
+			spriteBatch.Begin();
+
+			string text = "Press the number keys (1-9) to switch between shapes..";
+
+			// Draw the string twice to create a drop shadow, first colored black
+			// and offset one pixel to the bottom right, then again in white at the
+			// intended position. This makes text easier to read over the background.
+			spriteBatch.DrawString(spriteFont, text, new Vector2(10, 10), Color.Black);
+			spriteBatch.DrawString(spriteFont, text, new Vector2(9, 9), Color.White);
+
+			spriteBatch.End();
 		}
 	}
 }
