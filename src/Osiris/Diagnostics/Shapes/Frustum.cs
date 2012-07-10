@@ -1,15 +1,15 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace Osiris.Diagnostics
+namespace Osiris.Diagnostics.Shapes
 {
-	internal static class FrustumVisualizer
+	internal static class Frustum
 	{
 		private static readonly VertexPositionColor[] FrustumVertices;
 		private static readonly short[] WireFrustumIndices;
 		private static readonly Vector3[] Corners;
 
-		static FrustumVisualizer()
+		static Frustum()
 		{
 			Color color = Color.White;
 

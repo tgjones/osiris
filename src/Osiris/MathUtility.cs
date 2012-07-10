@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework;
 
 namespace Osiris
 {
-	public static class MathHelper
+	public static class MathUtility
 	{
 		public static int FloorToInt(float f)
 		{

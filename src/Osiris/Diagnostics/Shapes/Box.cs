@@ -1,14 +1,14 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace Osiris.Diagnostics
+namespace Osiris.Diagnostics.Shapes
 {
-	internal static class BoxVisualizer
+	internal static class Box
 	{
 		private static readonly Vector3[] WireframeCorners;
 		private static readonly WireframeLine[] WireframeLines;
 
-		static BoxVisualizer()
+		static Box()
 		{
 			WireframeCorners = new[]
 			{

@@ -2,14 +2,14 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace Osiris.Diagnostics
+namespace Osiris.Diagnostics.Shapes
 {
-	internal static class RectangleVisualizer
+	internal static class Rectangle
 	{
 		private static readonly VertexPositionColor[] Vertices;
 		private static readonly short[] SolidIndices;
 
-		static RectangleVisualizer()
+		static Rectangle()
 		{
 			// These get moved to the real positions when they're drawn.
 			Color color = Color.White;

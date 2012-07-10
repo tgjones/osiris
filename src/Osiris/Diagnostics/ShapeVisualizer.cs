@@ -1,6 +1,8 @@
 ﻿using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Osiris.Diagnostics.Shapes;
+using Rectangle = Osiris.Diagnostics.Shapes.Rectangle;
 
 namespace Osiris.Diagnostics
 {
@@ -31,20 +33,33 @@ namespace Osiris.Diagnostics
 			Vector3 center, Vector3 size, Quaternion rotation, Color color)
 		{
 			EnsureGraphicsDevice();
-			BoxVisualizer.DrawWireframe(_primitiveDrawer, cameraPosition, cameraView, cameraProjection,
+			Box.DrawWireframe(_primitiveDrawer, cameraPosition, cameraView, cameraProjection,
 				center, size, rotation, color);
 		}
 
 		public static void DrawWireframeFrustum(Matrix cameraView, Matrix cameraProjection, BoundingFrustum frustum, Color color)
 		{
 			EnsureGraphicsDevice();
-			FrustumVisualizer.DrawWireframe(_primitiveDrawer, cameraView, cameraProjection, frustum, color);
+			Frustum.DrawWireframe(_primitiveDrawer, cameraView, cameraProjection, frustum, color);
 		}
 
 		public static void DrawSolidRectangle(Matrix cameraView, Matrix cameraProjection, Vector3[] corners, Color color)
 		{
 			EnsureGraphicsDevice();
-			RectangleVisualizer.DrawSolid(_primitiveDrawer, cameraView, cameraProjection, corners, color);
+			Rectangle.DrawSolid(_primitiveDrawer, cameraView, cameraProjection, corners, color);
+		}
+
+		public static void DrawLine(Matrix cameraView, Matrix cameraProjection, Vector3 start, Vector3 end, Color color)
+		{
+			EnsureGraphicsDevice();
+			Line.Draw(_primitiveDrawer, cameraView, cameraProjection, start, end, color);
+		}
+
+		public static void DrawWireframeDisc(Vector3 cameraPosition, Matrix cameraView, Matrix cameraProjection,
+			Vector3 center, Vector3 normal, float radius, Color color, bool fadeBackFace)
+		{
+			EnsureGraphicsDevice();
+			Disc.DrawWireframe(_primitiveDrawer, cameraPosition, cameraView, cameraProjection, center, normal, radius, color, fadeBackFace);
 		}
 	}
 }

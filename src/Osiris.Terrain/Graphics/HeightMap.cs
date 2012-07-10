@@ -24,14 +24,14 @@ namespace Osiris.Terrain.Graphics
 				z /= _horizontalScale;
 
 				// get integer and fractional parts of coordinates
-				int nIntX0 = MathHelper.FloorToInt(x);
-				int nIntY0 = MathHelper.FloorToInt(z);
+				int nIntX0 = MathUtility.FloorToInt(x);
+				int nIntY0 = MathUtility.FloorToInt(z);
 				float fFractionalX = x - nIntX0;
 				float fFractionalY = z - nIntY0;
 
 				// get coordinates for "other" side of quad
-				int nIntX1 = MathHelper.Clamp(nIntX0 + 1, 0, Width - 1);
-				int nIntY1 = MathHelper.Clamp(nIntY0 + 1, 0, Height - 1);
+				int nIntX1 = MathUtility.Clamp(nIntX0 + 1, 0, Width - 1);
+				int nIntY1 = MathUtility.Clamp(nIntY0 + 1, 0, Height - 1);
 
 				// read 4 map values
 				float f0 = this[nIntX0, nIntY0];

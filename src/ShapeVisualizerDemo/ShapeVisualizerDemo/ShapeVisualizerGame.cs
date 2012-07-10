@@ -8,7 +8,7 @@ namespace ShapeVisualizerDemo
 	/// <summary>
 	/// This is the main type for your game
 	/// </summary>
-	public class ShapeVisualizerGame : Microsoft.Xna.Framework.Game
+	public class ShapeVisualizerGame : Game
 	{
 		private SpriteBatch _spriteBatch;
 		private SpriteFont _spriteFont;
@@ -97,6 +97,21 @@ namespace ShapeVisualizerDemo
 						new Vector3(1, 1, -3)
 					};
 					ShapeVisualizer.DrawSolidRectangle(cameraView, cameraProjection, corners, Color.Blue);
+					break;
+				}
+				case 3:
+				{
+					for (int i = 0; i < 360; i += 30)
+						ShapeVisualizer.DrawLine(cameraView, cameraProjection,
+							Vector3.Zero,
+							Vector3.TransformNormal(Vector3.Up, Matrix.CreateRotationZ(MathHelper.ToRadians(i))),
+							Color.Yellow);
+					break;
+				}
+				case 4 :
+				{
+					ShapeVisualizer.DrawWireframeDisc(cameraPosition, cameraView, cameraProjection,
+						Vector3.Zero, Vector3.Forward, 0.8f, Color.White, false);
 					break;
 				}
 			}

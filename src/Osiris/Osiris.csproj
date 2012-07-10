@@ -92,13 +92,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Diagnostics\BoxVisualizer.cs" />
-    <Compile Include="Diagnostics\FrustumVisualizer.cs" />
+    <Compile Include="Diagnostics\Shapes\Box.cs" />
+    <Compile Include="Diagnostics\Shapes\Disc.cs" />
+    <Compile Include="Diagnostics\Shapes\Frustum.cs" />
     <Compile Include="Diagnostics\PrimitiveDrawer.cs" />
-    <Compile Include="Diagnostics\RectangleVisualizer.cs" />
+    <Compile Include="Diagnostics\Shapes\Rectangle.cs" />
+    <Compile Include="Diagnostics\Shapes\Line.cs" />
     <Compile Include="Diagnostics\ShapeVisualizer.cs" />
     <Compile Include="Graphics\VertexPositionNormalTexture2.cs" />
-    <Compile Include="MathHelper.cs" />
+    <Compile Include="MathUtility.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
