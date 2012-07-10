@@ -26,6 +26,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Osiris.Terrain.Content.Pipe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Osiris.Terrain", "Osiris.Terrain\Osiris.Terrain.csproj", "{14DF4440-CC82-4008-B38C-D498743EBC9B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShapeVisualizerDemo", "ShapeVisualizerDemo\ShapeVisualizerDemo\ShapeVisualizerDemo.csproj", "{563FA91B-D251-4958-AE5B-9D8745BD3C8E}"
+EndProject
+Project("{96E2B04D-8817-42C6-938A-82C39BA4D311}") = "ShapeVisualizerDemoContent", "ShapeVisualizerDemo\ShapeVisualizerDemoContent\ShapeVisualizerDemoContent.contentproj", "{A6FFCBA7-AC2C-4D9B-A042-3E0982CB35DA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Mixed Platforms = Debug|Mixed Platforms
@@ -128,6 +132,22 @@ Global
 		{14DF4440-CC82-4008-B38C-D498743EBC9B}.Release|x86.ActiveCfg = Release|x86
 		{14DF4440-CC82-4008-B38C-D498743EBC9B}.Release|x86.Build.0 = Release|x86
 		{14DF4440-CC82-4008-B38C-D498743EBC9B}.Release|Xbox 360.ActiveCfg = Release|x86
+		{563FA91B-D251-4958-AE5B-9D8745BD3C8E}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{563FA91B-D251-4958-AE5B-9D8745BD3C8E}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{563FA91B-D251-4958-AE5B-9D8745BD3C8E}.Debug|x86.ActiveCfg = Debug|x86
+		{563FA91B-D251-4958-AE5B-9D8745BD3C8E}.Debug|x86.Build.0 = Debug|x86
+		{563FA91B-D251-4958-AE5B-9D8745BD3C8E}.Debug|Xbox 360.ActiveCfg = Debug|x86
+		{563FA91B-D251-4958-AE5B-9D8745BD3C8E}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{563FA91B-D251-4958-AE5B-9D8745BD3C8E}.Release|Mixed Platforms.Build.0 = Release|x86
+		{563FA91B-D251-4958-AE5B-9D8745BD3C8E}.Release|x86.ActiveCfg = Release|x86
+		{563FA91B-D251-4958-AE5B-9D8745BD3C8E}.Release|x86.Build.0 = Release|x86
+		{563FA91B-D251-4958-AE5B-9D8745BD3C8E}.Release|Xbox 360.ActiveCfg = Release|x86
+		{A6FFCBA7-AC2C-4D9B-A042-3E0982CB35DA}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{A6FFCBA7-AC2C-4D9B-A042-3E0982CB35DA}.Debug|x86.ActiveCfg = Debug|x86
+		{A6FFCBA7-AC2C-4D9B-A042-3E0982CB35DA}.Debug|Xbox 360.ActiveCfg = Debug|x86
+		{A6FFCBA7-AC2C-4D9B-A042-3E0982CB35DA}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{A6FFCBA7-AC2C-4D9B-A042-3E0982CB35DA}.Release|x86.ActiveCfg = Release|x86
+		{A6FFCBA7-AC2C-4D9B-A042-3E0982CB35DA}.Release|Xbox 360.ActiveCfg = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -137,5 +157,7 @@ Global
 		{7B2A039F-55E0-428E-87B6-E5827E9B27EA} = {E133C23B-100D-4F8F-A8B1-07641FC1035B}
 		{BCB8A781-6E1D-4B09-A502-1AD384447CDC} = {E133C23B-100D-4F8F-A8B1-07641FC1035B}
 		{BFF47E18-72F7-40D0-8EA7-F848810B0BC6} = {E133C23B-100D-4F8F-A8B1-07641FC1035B}
+		{A6FFCBA7-AC2C-4D9B-A042-3E0982CB35DA} = {E133C23B-100D-4F8F-A8B1-07641FC1035B}
+		{563FA91B-D251-4958-AE5B-9D8745BD3C8E} = {E133C23B-100D-4F8F-A8B1-07641FC1035B}
 	EndGlobalSection
 EndGlobal
