@@ -61,5 +61,12 @@ namespace Osiris.Diagnostics
 			EnsureGraphicsDevice();
 			Disc.DrawWireframe(_primitiveDrawer, cameraPosition, cameraView, cameraProjection, center, normal, radius, color, fadeBackFace);
 		}
+
+		public static void DrawWireframeSphere(Vector3 cameraPosition, Matrix cameraView, Matrix cameraProjection,
+			Vector3 center, Vector3 normal, float radius, Quaternion rotation, Color color)
+		{
+			EnsureGraphicsDevice();
+			Sphere.DrawWireframe(_primitiveDrawer, cameraPosition, cameraView, cameraProjection, center, radius, rotation, color);
+		}
 	}
 }

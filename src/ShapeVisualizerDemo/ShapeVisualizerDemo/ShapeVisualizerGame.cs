@@ -114,6 +114,12 @@ namespace ShapeVisualizerDemo
 						Vector3.Zero, Vector3.Forward, 0.8f, Color.White, false);
 					break;
 				}
+				case 5 :
+				{
+					ShapeVisualizer.DrawWireframeSphere(cameraPosition, cameraView, cameraProjection,
+						Vector3.Zero, Vector3.Forward, 0.8f, rotation * Quaternion.CreateFromYawPitchRoll(0.2f, 0.4f, 0.1f), Color.White);
+					break;
+				}
 			}
 			
 			DrawOverlayText();

@@ -48,6 +48,7 @@
     <Compile Include="Diagnostics\Shapes\Frustum.cs" />
     <Compile Include="Diagnostics\Shapes\Line.cs" />
     <Compile Include="Diagnostics\Shapes\Rectangle.cs" />
+    <Compile Include="Diagnostics\Shapes\Sphere.cs" />
     <Compile Include="Diagnostics\ShapeVisualizer.cs" />
     <Compile Include="Graphics\VertexPositionNormalTexture2.cs" />
     <Compile Include="MathUtility.cs" />
