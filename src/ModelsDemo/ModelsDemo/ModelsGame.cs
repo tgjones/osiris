@@ -57,6 +57,7 @@ namespace ModelsDemo
 			{
 				@"Tank",
 				@"75Cathedral-model",
+				@"Jane_solid_3ds",
 				@"Primitives\Cube",
 				@"Primitives\Cylinder",
 				@"Primitives\Plane",

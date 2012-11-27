@@ -12,3 +12,6 @@ http://artist-3d.com/free_3d_models/dnm/model_disp.php?uid=678&count=count
 
 Nissan.3ds is from
 http://artist-3d.com/free_3d_models/dnm/model_disp.php?uid=798&count=count
+
+Jane_solid_3ds.3ds is from:
+http://facegen.com/sampleExports.htm

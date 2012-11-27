@@ -1,6 +1,7 @@
 Content\Tank.xnb
 Content\Nissan.xnb
 Content\75Cathedral-model.xnb
+Content\Jane_solid_3ds.xnb
 Content\Primitives\Sphere.xnb
 Content\Primitives\Teapot.xnb
 Content\Primitives\Torus.xnb
@@ -12,3 +13,6 @@ Content\gameFont.xnb
 Content\SimpleEffect.xnb
 Content\turret_alt_diff_tex_small_0.xnb
 Content\engine_diff_tex_small_0.xnb
+Content\Jane_sol_0.xnb
+Content\Jane_so1_0.xnb
+Content\Jane_so2_0.xnb

@@ -6,6 +6,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content.Pipeline;
 using Microsoft.Xna.Framework.Content.Pipeline.Graphics;
 using Nexus;
+using Nexus.Graphics.Colors;
 using Nexus.Graphics.Transforms;
 
 namespace Osiris.Content.Pipeline
